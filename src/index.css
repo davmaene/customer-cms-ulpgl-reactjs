@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.twocol-small nav ul {
+  display: block;
+}
+
+a.HeadlineBar_link__362Ch {
+  border-bottom: 1px dotted !important;
+}
+
+a.HeadlineBar_link__362Ch:hover,
+a.HeadlineBar_link__362Ch:focus {
+  border-bottom: 1px solid !important;
+}
+
+.prev-next {
+  text-transform: uppercase;
+}
+
+.richtext section,
+.richtext section p {
+  font-size: 18px;
+  line-height: 30px;
+  font-family: "Gotham A", "Gotham B", sans-serif;
+}
+
+#header>div.EduHeader_headerNavigation__3Li1o>nav>div>div>ul.EduNavigation_navList__3UUa5.EduNavigation_rightNav__J4S-4>li:nth-child(2)>a>span {
+  color: #4d4d4d;
+}
+
+p.typography-intro-paragraph span {
+  font-size: 16px;
+}
+
+@media (min-width: 1366px) {
+  .VideoSpotlight_videoSpotlight__DrkOc.VideoSpotlight_heightAdjusted__2quNh {
+    min-height: 695px;
+  }
+}
+
+.coveo-first-loading-animation {
+  display: none;
+}
