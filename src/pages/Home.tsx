@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
       <InstructionsSection />
       <QuoteSection />
       <ExploreSection />

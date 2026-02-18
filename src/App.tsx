@@ -16,7 +16,7 @@ function App() {
       <div data-rsssl="1" className="home wp-singular page-template page-template-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-edublock-pro tribe-js">
         <SkipToContent />
         <div className="wp-site-blocks">
-          <Header />
+          {/* <Header /> */}
           <main className="wp-block-group site-content is-layout-flow wp-block-group-is-layout-flow" style={{ marginTop: 0 }} id="wp--skip-link--target">
             <div className="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
               <Routes>
