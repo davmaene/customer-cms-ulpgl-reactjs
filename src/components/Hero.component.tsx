@@ -1,4 +1,6 @@
 import hero from '../assets/videos/hero-video.mp4';
+import { APPNAME, APPOWNER } from '../utils/utils.constants';
+import { Hrseparator } from './subcomponents/Hrseparator';
 
 export const HeroSection: React.FC = () => {
     return (
@@ -34,27 +36,28 @@ export const HeroSection: React.FC = () => {
 
                         <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
                             <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '62%' }}>
-                                <div className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+                                <div className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style={{ paddingTop: 'var(--wp--preset--spacing--50)', paddingBottom: 'var(--wp--preset--spacing--50)' }}>
                                     <h1 className="wp-block-heading has-text-align-left has-white-color has-text-color has-max-60-font-size"
                                         style={{ lineHeight: '1.2' }}>
-                                        Launching our Students into Bright Futures
+                                        {APPOWNER} <br />( {APPNAME} )
                                     </h1>
 
                                     <p className="has-text-align-left">
-                                        This is some dummy copy. You're not really<br />
-                                        supposed to read this dummy copy.
+                                        Développer une approche d'enseignement scientifique et de la recherche répondant aux aspirations de la société, dans la Région des Grands Lacs<br />
+                                        <Hrseparator />
+                                        Nous organisons 7 facultés qui sont Sciences de l'Homme et de la Société, Sciences Juridique, Politique et Administrative, les Sciences Economiques et de Gestion, les Sciences de la Santé avec la Filière de Médecine Humaine et Filière de Santé Publique , les Sciences Psychologiques et de l'Education, Sciences et Technologies.
                                     </p>
 
                                     <div className="wp-block-buttons is-content-justification-left is-layout-flex wp-container-core-buttons-is-layout-fc4fd283 wp-block-buttons-is-layout-flex">
-                                        <div className="wp-block-button wpz-alt-button">
-                                            <a className="wp-block-button__link wp-element-button">Apply now</a>
+                                        <div className="wp-block-button wpz-alt-button w-100">
+                                            <a className="wp-block-button__link wp-element-button w-50">En savoir plus</a>
                                         </div>
-                                        <div className="wp-block-button wpz-alt-button is-style-fill">
+                                        {/* <div className="wp-block-button wpz-alt-button is-style-fill">
                                             <a className="wp-block-button__link has-foreground-color has-white-background-color has-text-color has-background has-link-color wp-element-button"
                                                 style={{ paddingTop: '8px', paddingRight: '24px', paddingBottom: '8px', paddingLeft: '24px' }}>
                                                 Schedule a Visit
                                             </a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
