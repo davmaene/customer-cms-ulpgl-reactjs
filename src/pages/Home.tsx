@@ -18,8 +18,8 @@ export const Home: React.FC = () => {
       <ProgramSection />
       <StudentsSection />
       <CoursesSection />
-      <OpportunitiesSection />
-      <LatestNewsSection />
+      {/* <OpportunitiesSection /> */}
+      {/* <LatestNewsSection /> */}
       {/* <StudyLinksSection /> */}
       {/* <TeacherSpotlightSection /> */}
       <ResearchSection />

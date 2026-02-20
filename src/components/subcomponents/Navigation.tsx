@@ -1,3 +1,4 @@
+import { Colors } from "../../utils/utils.colors";
 import { NavItem } from "./NavItem";
 
 export const MainNavigation: React.FC = () => {
@@ -41,13 +42,13 @@ export const MainNavigation: React.FC = () => {
 
                             <ul style={{ fontStyle: 'normal', fontWeight: '500' }}
                                 className="wp-block-navigation__container is-responsive items-justified-left wp-block-navigation">
-                                <NavItem href="/" label="Accueil" current={true} />
-                                <NavItem href="/app/domaines" label="Facultés" />
-                                <NavItem href="/app/admission" label="Admission" />
-                                <NavItem href="/app/research" label="Recherche" />
-                                <NavItem href="/app/activities" label="Activités" />
-                                <NavItem href="/app/articles" label="Articles" />
-                                <NavItem href="/app/contancts" label="Nos Contacts" />
+                                <NavItem href="/" label="Accueil" current={true} color={Colors.darkColor} />
+                                <NavItem href="/app/domaines" label="Facultés" color={Colors.darkColor} />
+                                <NavItem href="/app/admission" label="Admission" color={Colors.darkColor} />
+                                <NavItem href="/app/research" label="Recherche" color={Colors.darkColor} />
+                                <NavItem href="/app/activities" label="Activités" color={Colors.darkColor} />
+                                <NavItem href="/app/articles" label="Articles" color={Colors.darkColor} />
+                                <NavItem href="/app/contancts" label="Nos Contacts" color={Colors.darkColor} />
                             </ul>
                         </div>
                     </div>

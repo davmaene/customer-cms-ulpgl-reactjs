@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             <p>
               Nous sommes l’Université Libre des Pays des Grands Lacs (ULPGL), une université Chrétienne des Eglises Protestantes des Pays de Grands Lacs,  privée et agréée par le Gouvernement congolais.
             </p>
-            
+
             <hr
               className="wp-block-separator has-text-color has-lightgrey-color has-alpha-channel-opacity has-lightgrey-background-color has-background is-style-wide"
               style={{ marginTop: '15px', marginBottom: '0px' }}
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
 
             <form action="#">
               <input type="text" placeholder="Email address" name="mail" required />
-              <input type="submit" value="Subscribe" />
+              <input type="submit" value="Souscrire" />
             </form>
           </div>
         </div>
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
           style={{ backgroundColor: '#ffffff24', color: '#ffffff24' }} />
 
         <div className="wp-block-group is-content-justification-space-between is-layout-flex wp-block-group-is-layout-flex">
-          <p className="has-tertiary-color has-text-color">Copyright © {new Date().getFullYear()} {APPNAME}</p>
+          <p className="has-tertiary-color has-text-color">Copyright &copy; {new Date().getFullYear()} {APPNAME}</p>
 
           <p className="has-tertiary-color has-text-color">
             Designed by <a href={APPDNS} target="_blank" rel="noreferrer noopener">{APPCREATOR}</a>

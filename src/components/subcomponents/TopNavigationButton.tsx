@@ -2,7 +2,7 @@ import { NavItem } from "./NavItem";
 
 export const TopNavigation: React.FC = () => {
     return (
-        <nav className="has-small-font-size is-responsive items-justified-right wp-block-navigation is-content-justification-right is-layout-flex wp-container-core-navigation-is-layout-d445cf74 wp-block-navigation-is-layout-flex bg-danger"
+        <nav className="has-small-font-size is-responsive items-justified-right wp-block-navigation is-content-justification-right is-layout-flex wp-container-core-navigation-is-layout-d445cf74 wp-block-navigation-is-layout-flex"
             aria-label="Navigate" data-wp-interactive="core/navigation"
             data-wp-context="{&quot;overlayOpenedBy&quot;:{&quot;click&quot;:false,&quot;hover&quot;:false,&quot;focus&quot;:false},&quot;type&quot;:&quot;overlay&quot;,&quot;roleAttribute&quot;:&quot;&quot;,&quot;ariaLabel&quot;:&quot;Menu&quot;}">
 

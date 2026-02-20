@@ -47,16 +47,16 @@ export const HeroSection: React.FC = () => {
                                     </h1>
 
                                     <p className="has-text-align-left">
-                                        Développer une approche d'enseignement scientifique et de la recherche répondant aux aspirations de la société, dans la Région des Grands Lacs<br />
+                                        Nous sommes l’Université Libre des Pays des Grands Lacs ( ULPGL ), une université Chrétienne des Eglises Protestantes des Pays de Grands Lacs,  privée et agréée par le Gouvernement congolais<br />
                                         <Hrseparator />
-                                        Nous organisons 7 facultés qui sont Sciences de l'Homme et de la Société, Sciences Juridique, Politique et Administrative, les Sciences Economiques et de Gestion, les Sciences de la Santé avec la Filière de Médecine Humaine et Filière de Santé Publique , les Sciences Psychologiques et de l'Education, Sciences et Technologies.
+                                        L’ULPGL est issue de l’Institut supérieur de théologie protestante créé en 1985 et transformé en université ( ULPGL ) en 1990. Elle est localisée dans la ville de Goma, en province du Nord-Kivu, en république Démocratique. Notre devise est : Foi-Science-Action
                                     </p>
 
                                     <div className="wp-block-buttons is-content-justification-left is-layout-flex wp-container-core-buttons-is-layout-fc4fd283 wp-block-buttons-is-layout-flex">
                                         <div className="wp-block-button wpz-alt-button w-100">
                                             <a className="wp-block-button__link wp-element-button w-50">
                                                 En savoir plus
-                                                <ArrowForward style={{ paddingLeft: '10px' }} />
+                                                <ArrowForward style={{ marginLeft: '10px' }} />
                                             </a>
                                         </div>
                                         {/* <div className="wp-block-button wpz-alt-button is-style-fill">
