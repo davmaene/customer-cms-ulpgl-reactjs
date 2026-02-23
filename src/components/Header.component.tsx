@@ -7,6 +7,8 @@ import { TopNavigation } from "./subcomponents/TopNavigationButton";
 import { FaMapMarker } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPhone } from "react-icons/gi";
+import { NavItem } from "./subcomponents/NavItem";
+import { APPCONTACTS } from "../utils/utils.constants";
 
 const MarkerIcon = FaMapMarker as any;
 const EnvelopeIcon = FaEnvelope as any;
@@ -15,32 +17,28 @@ const PhoneIcon = GiPhone as any;
 export const Header: React.FC = () => {
   return (
     <header className="site-header">
-      {/* 1. TOP BAR (Bleu Marine) */}
       <div className="top-bar" style={{ backgroundColor: Colors.primaryColor, color: 'white', padding: '10px 50px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '14px' }}>
           <TopNavigation />
           <div className="top-right-actions" style={{ display: 'flex', gap: '20px' }}>
             {/* <span>Login / Register</span> */}
-            <span>FAQ</span>
-            <span>🇺🇸</span>
+            <NavItem href="/app/faq" label="FAQ" />
           </div>
         </div>
       </div>
 
-      {/* 2. MIDDLE BAR (Logo + Contact Infos) */}
       <div className="middle-bar" style={{ padding: '20px 50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'white' }}>
         <Logo />
         <div className="contact-info-blocks" style={{ display: 'flex', gap: '40px' }}>
-          <ContactBlock icon={<MarkerIcon />} label="Addresse" value="Avenue du Lac, N°2 Quartier Himbi II, C. Goma, V. Goma" />
-          <ContactBlock icon={<EnvelopeIcon />} label="Email" value="mailinfo@example.com" />
-          <ContactBlock icon={<PhoneIcon />} label="Téléphone" value="+01 123 456 789" />
+          <ContactBlock icon={<MarkerIcon />} label="Addresse" value={APPCONTACTS.address} />
+          <ContactBlock icon={<EnvelopeIcon />} label="Email" value={APPCONTACTS.email} />
+          <ContactBlock icon={<PhoneIcon />} label="Téléphone" value={APPCONTACTS.phone} />
         </div>
       </div>
 
-      {/* 3. MAIN NAVIGATION BAR */}
       <div className="main-nav-container" style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f8f9fa', borderBottom: '1px solid #eee' }}>
         <div style={{ backgroundColor: '#001529', color: 'white', padding: '15px 30px', display: 'flex', alignItems: 'center' }}>
-          <span style={{ marginRight: '10px' }}>Get More Info</span>
+          <span style={{ marginRight: '10px' }}>Plus d'infos</span>
           <span>→</span>
         </div>
         <div style={{ flex: 1, paddingLeft: '20px' }}>
