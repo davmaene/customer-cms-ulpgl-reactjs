@@ -4,6 +4,7 @@ import { FeatureItem } from './subcomponents/FeatureItem.component';
 import { Hrseparator } from './subcomponents/Hrseparator';
 import { IoIosArrowForward } from "react-icons/io";
 import { discoverIcon, newsIcon, registrationIcon } from './subcomponents/Icons';
+import heroImage from '../assets/images/hero-image.png';
 
 const ArrowForward = IoIosArrowForward as any;
 
@@ -20,7 +21,14 @@ export const HeroSection: React.FC = () => {
                     className="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient has-black-primary-gradient-background">
                 </span>
 
-                <video
+                <img
+                    className="wp-block-cover__image-background intrinsic-ignore"
+                    alt="Hero Image"
+                    src={heroImage}
+                    style={{ objectPosition: '35% 37%' }} data-object-fit="cover"
+                    data-object-position="35% 37%" />
+
+                {/* <video
                     className="wp-block-cover__video-background intrinsic-ignore"
                     autoPlay
                     muted
@@ -28,7 +36,8 @@ export const HeroSection: React.FC = () => {
                     playsInline
                     src="https://demo.wpzoom.com/edublock-pro/files/2022/12/pexels-olia-danilevich-8060813.mp4"
                     style={{ objectPosition: '35% 37%' }} data-object-fit="cover"
-                    data-object-position="35% 37%"></video>
+                    data-object-position="35% 37%"></video> */}
+
 
                 <div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
                     <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
