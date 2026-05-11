@@ -1,19 +1,22 @@
 import { NavItem } from "./NavItem";
+import { CiMenuFries } from "react-icons/ci";
+
+const MenuIcon = CiMenuFries as any;
 
 export const TopNavigation: React.FC = () => {
     return (
         <nav className="has-small-font-size is-responsive items-justified-right wp-block-navigation is-content-justification-right is-layout-flex wp-container-core-navigation-is-layout-d445cf74 wp-block-navigation-is-layout-flex"
             aria-label="Navigate" data-wp-interactive="core/navigation"
-            data-wp-context="{&quot;overlayOpenedBy&quot;:{&quot;click&quot;:false,&quot;hover&quot;:false,&quot;focus&quot;:false},&quot;type&quot;:&quot;overlay&quot;,&quot;roleAttribute&quot;:&quot;&quot;,&quot;ariaLabel&quot;:&quot;Menu&quot;}">
-
-            <button aria-haspopup="dialog" aria-label="Open menu"
+            data-wp-context="{&quot;overlayOpenedBy&quot;:{&quot;click&quot;:false,&quot;hover&quot;:false,&quot;focus&quot;:false},&quot;type&quot;:&quot;overlay&quot;,&quot;roleAttribute&quot;:&quot;&quot;,&quot;ariaLabel&quot;:&quot;Menu&quot;}"
+        >
+            <button
+                aria-haspopup="dialog"
+                aria-label="Open menu"
                 className="wp-block-navigation__responsive-container-open"
-                data-wp-on--click="actions.openMenuOnClick" data-wp-on--keydown="actions.handleMenuKeydown">
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                    aria-hidden="true" focusable="false">
-                    <path d="M4 7.5h16v1.5H4z"></path>
-                    <path d="M4 15h16v1.5H4z"></path>
-                </svg>
+                data-wp-on--click="actions.openMenuOnClick"
+                data-wp-on--keydown="actions.handleMenuKeydown"
+            >
+                <MenuIcon />
             </button>
 
             <div className="wp-block-navigation__responsive-container" id="modal-1"
@@ -35,7 +38,7 @@ export const TopNavigation: React.FC = () => {
 
                         <div className="wp-block-navigation__responsive-container-content"
                             data-wp-watch="callbacks.focusFirstElement" id="modal-1-content">
-                            <ul className="wp-block-navigation__container has-small-font-size is-responsive items-justified-right wp-block-navigation has-small-font-size">
+                            <ul className="wp-block-navigation__container has-small-font-size is-responsive items-justified-right wp-block-navigation has-small-font-size top-navigation">
                                 <NavItem href="/portail/student" label="Pour étudiants" />
                                 <NavItem href="/portail/teachers" label="Pour enseignants" />
                                 <NavItem href="/others/library" label="Bibliothèque" />

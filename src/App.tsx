@@ -1,6 +1,8 @@
 import React from "react";
+
 import "./App.css";
 import './styles/custom.scss';
+import './styles/skeleton.scss';
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -9,23 +11,60 @@ import { routes } from "./utils/utils.routes";
 import { Footer } from "./components/Footer.component";
 import { Header } from "./components/Header.component";
 import { SkipToContent } from "./components/subcomponents/Skipbutton";
+import { Contacts } from "./pages/Contacts";
+import { About } from "./pages/About";
+import { Center } from "./pages/Center";
+import { ToastContainer } from 'react-toastify';
+import { Articles } from "./pages/Articles";
+import { NotFound } from "./pages/NotFound";
+import { Faq } from "./pages/Faq";
+import { ArticleDerails } from "./pages/Articledetails";
+import { LoadingWrapper } from "./components/Loaderwrapper";
+import { Centers } from "./pages/Centers";
+import { Profile } from "./pages/Profile";
+import { Domaines } from "./pages/Domaines";
 
 function App() {
   return (
     <Router>
       <div data-rsssl="1" className="home wp-singular page-template page-template-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-edublock-pro tribe-js">
         <SkipToContent />
-        <div className="wp-site-blocks">
-          <Header />
-          <main className="wp-block-group site-content is-layout-flow wp-block-group-is-layout-flow" style={{ marginTop: 0 }} id="wp--skip-link--target">
-            <div className="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-              <Routes>
-                <Route path={routes.HOME} element={<Home />} />
-              </Routes>
-            </div>
-          </main>
-          <Footer />
-        </div>
+        <LoadingWrapper>
+          <div className="wp-site-blocks- px-0 py-0">
+            <Header />
+            <main className="wp-block-group site-content is-layout-flow wp-block-group-is-layout-flow" style={{ marginTop: 10 }} id="wp--skip-link--target">
+              <div className="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained pl-2">
+                <Routes>
+                  <Route path={routes.HOME} element={<Home />} />
+                  <Route path={routes.HOMEBLANK} element={<Home />} />
+                  <Route path={routes.CONTACTS} element={<Contacts />} />
+                  <Route path={routes.ABOUT} element={<About />} />
+                  <Route path={routes.DOMAINES} element={<Domaines />} />
+                  <Route path={`${routes.CENTRES}/:center`} element={<Center />} />
+                  <Route path={routes.CENTRES} element={<Centers />} />
+                  <Route path={`${routes.PROFILE}/:profile`} element={<Profile />} />
+                  <Route path={`${routes.ARTICLES}/:category?`} element={<Articles />} />
+                  <Route path={`${routes.ARTICLESDETAILS}/:article`} element={<ArticleDerails />} />
+                  <Route path={routes.FAQ} element={<Faq />} />
+
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
+            </main>
+            <Footer />
+          </div>
+        </LoadingWrapper>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light" />
       </div>
     </Router>
   );

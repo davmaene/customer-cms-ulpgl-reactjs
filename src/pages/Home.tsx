@@ -1,46 +1,54 @@
 import React from 'react';
-import { Footer } from '../components/Footer.component';
-import { Header } from '../components/Header.component';
-import { APPNAME } from '../utils/utils.constants';
-import { SkipToContent } from '../components/subcomponents/Skipbutton';
+
+import { APPNAME, APPOWNER } from '../utils/utils.constants';
 import { HeroSection } from '../components/Hero.component';
-import { FeatureItem } from '../components/subcomponents/FeatureItem.component';
-import { FeaturesSection } from '../components/Feature.component';
+import { ArticleCard } from '../components/subcomponents/ArticleComponent';
+import heroImage from '../assets/images/hero-image.png';
+import { QuoteSection } from '../components/Quote.component';
+import { activities, centers, domainsData, posts } from '../utils/utils.statiquedata';
+import { randomNumber, shuffleArray, truncateText } from '../utils/utils.fucntions';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import students from '../assets/images/177A7204.jpg';
+import { ExploreCenters } from '../components/Centers.component';
+import { DomainesSection } from '../components/Domaines.component';
 
 export const Home: React.FC = () => {
   return (
     <>
       <HeroSection />
       {/* <FeaturesSection /> */}
-      <InstructionsSection />
+      <ArticlesSection />
       <QuoteSection />
-      <ExploreSection />
-      <ProgramSection />
+      {/* Explore our centers */}
+      <ExploreCenters />
+      {/* <ProgramSection /> */}
       <StudentsSection />
-      <CoursesSection />
+      {/* Explore domaines */}
+      <DomainesSection />
       {/* <OpportunitiesSection /> */}
       {/* <LatestNewsSection /> */}
       {/* <StudyLinksSection /> */}
       {/* <TeacherSpotlightSection /> */}
-      <ResearchSection />
+      {/* <ResearchSection /> */}
       <EnrollSection />
     </>
   );
 };
 
-const InstructionsSection: React.FC = () => {
+const ArticlesSection: React.FC = () => {
   return (
-    <div id="instructions" className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+    <div id="articles" className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained is-layout-container">
       <div className="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
         <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
 
         <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
           <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
             <h2 className="wp-block-heading has-primary-color has-text-color has-max-48-font-size">
-              Instruction for students
+              Articles et dernières informations
             </h2>
             <p className="has-tertiary-color has-text-color">
-              This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people.
+              Restez informé des avancées de nos projets et découvrez des analyses d'experts pour approfondir vos connaissances et optimiser votre quotidien académique.
             </p>
           </div>
           <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}></div>
@@ -49,168 +57,27 @@ const InstructionsSection: React.FC = () => {
         <div style={{ height: '60px' }} aria-hidden="true" className="wp-block-spacer"></div>
 
         <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-          <InstructionCard
-            imageSrc=""
-            title="Tempus urna et pharetra pharetra massa nisi massa ultricies"
-            description="This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people who need some type."
-            linkText="Learn more"
-            linkHref="index.html"
-          />
+          {posts.map((post, idx) => {
+            const key = randomNumber();
 
-          <InstructionCard
-            imageSrc=""
-            title="Amet mattis vulputate enim nulla aliquet porttitor lacus luctus"
-            description="This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people who need some type."
-            linkText="Learn more"
-            linkHref="index.html"
-          />
+            return (
+              <ArticleCard
+                key={key}
+                id={893}
+                post_image={heroImage}
+                post_title={post.post_title}
+                post_excerpt={post.post_excerpt}
+                post_author={post.post_author}
+                post_date={post.post_date}
+                post_content={post.post_content}
+                post_category='Article'
+                post_name={post.post_name}
+              />
+            )
+          })}
         </div>
 
         <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
-      </div>
-    </div>
-  );
-};
-
-const InstructionCard: React.FC<{
-  imageSrc: string;
-  title: string;
-  description: string;
-  linkText: string;
-  linkHref: string;
-}> = ({ imageSrc, title, description, linkText, linkHref }) => {
-  return (
-    <div className="wp-block-column has-light-background-background-color has-background is-layout-flow wp-block-column-is-layout-flow"
-      style={{ borderStyle: 'none', borderWidth: '0px', paddingTop: '0px', paddingRight: '0px', paddingBottom: '0px', paddingLeft: '0px' }}>
-
-      <figure className="wp-block-image size-large has-custom-border">
-        <img decoding="async" src={imageSrc} alt="" className="wp-image-5969" style={{ borderRadius: '10px' }} />
-      </figure>
-
-      <h4 className="wp-block-heading has-primary-color has-text-color has-large-font-size">{title}</h4>
-
-      <p className="has-header-footer-color has-text-color">{description}</p>
-
-      <p><a href={linkHref}>{linkText} →</a></p>
-    </div>
-  );
-};
-
-const QuoteSection: React.FC = () => {
-  return (
-    <main className="wp-block-group alignfull has-primary-background-color has-background has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" id="quote">
-      <div style={{ height: '80px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-      <div className="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-        <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
-          <figure className="wp-block-image size-full has-custom-border">
-            <img decoding="async" alt="" className="wp-image-6777" style={{ borderStyle: 'none', borderWidth: '0px', borderRadius: '10px' }} />
-          </figure>
-        </div>
-
-        <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50px' }}></div>
-
-        <div className="wp-block-column is-vertically-aligned-center is-style-default is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
-          <div className="wp-block-outermost-icon-block">
-            <div className="icon-container" style={{ width: '66px', transform: 'rotate(0deg) scaleX(1) scaleY(1)' }}>
-              <svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.3" d="M54.48 40H57.52L64 27.04V8H48V24H62.48L54.48 40ZM14.48 40H17.52L24 27.04V8H8V24H22.48L14.48 40Z" fill="var(--wp--preset--color--secondary)"></path>
-                <path d="M62.48 48L72 28.96V0H40V32H49.52L41.52 48H62.48ZM48 24V8H64V27.04L57.52 40H54.48L62.48 24H48ZM1.52 48H22.48L32 28.96V0H0V32H9.52L1.52 48ZM8 24V8H24V27.04L17.52 40H14.48L22.48 24H8Z" fill="var(--wp--preset--color--secondary)"></path>
-              </svg>
-            </div>
-          </div>
-
-          <div style={{ height: '50px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-          <h3 className="wp-block-heading has-text-align-left has-white-color has-text-color has-max-36-font-size">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </h3>
-
-          <div style={{ height: '30px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-          <p className="has-text-align-left has-lightgrey-color has-text-color has-small-font-size">
-            This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people who need some type to visualize what the actual copy might look like if it were real content.
-          </p>
-
-          <div style={{ height: '30px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-          <div className="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-            <div className="wp-block-button wpz-alt-button">
-              <a className="wp-block-button__link wp-element-button">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ height: '80px' }} aria-hidden="true" className="wp-block-spacer"></div>
-    </main>
-  );
-};
-
-const ExploreSection: React.FC = () => {
-  const exploreItems = [
-    { title: 'Our history', image: 'history.png', href: 'index.html' },
-    { title: 'Our campus', image: 'campus.png', href: 'index.html' },
-    { title: 'Curriculum', image: 'Curriculum-1.png', href: 'index.html' },
-    { title: 'Sports', image: 'sports.png', href: 'index.html' },
-    { title: 'Alumni', image: 'alumni.png', href: 'index.html' },
-    { title: 'Volunteers', image: 'teachers.png', href: 'index.html' },
-    { title: 'Events', image: 'events.png', href: 'index.html' },
-  ];
-
-  return (
-    <div id="explore" className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-      <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-        <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
-          <h2 className="wp-block-heading has-text-align-left has-primary-color has-text-color has-max-48-font-size">
-            Explore our university
-          </h2>
-          <p className="has-tertiary-color has-text-color">
-            This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people.
-          </p>
-        </div>
-        <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}></div>
-      </div>
-
-      <div style={{ height: '46px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-      <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex" style={{ borderRadius: '0px' }}>
-        {exploreItems.slice(0, 4).map((item, index) => (
-          <ExploreCard key={index} {...item} />
-        ))}
-      </div>
-
-      <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex" style={{ borderRadius: '0px' }}>
-        {exploreItems.slice(4).map((item, index) => (
-          <ExploreCard key={index} {...item} />
-        ))}
-      </div>
-
-      <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
-    </div>
-  );
-};
-
-const ExploreCard: React.FC<{ title: string; image: string; href: string }> = ({ title, image, href }) => {
-  return (
-    <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
-      style={{ paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-
-      <div className="wp-block-cover has-custom-content-position is-position-bottom-left is-style-round-corners"
-        style={{ paddingTop: 'var(--wp--preset--spacing--small)', paddingRight: 'var(--wp--preset--spacing--small)', paddingBottom: 'var(--wp--preset--spacing--small)', paddingLeft: 'var(--wp--preset--spacing--small)', minHeight: '270px', aspectRatio: 'unset' }}>
-
-        <span aria-hidden="true"
-          className="wp-block-cover__background has-background-dim-80 has-background-dim wp-block-cover__gradient-background has-background-gradient has-black-primary-gradient-background"></span>
-
-        <img decoding="async" className="wp-block-cover__image-background" alt=""
-          src={`https://wpzoom.s3.us-east-1.amazonaws.com/elementor/templates/assets/thumbs/edublock-pro/${image}`}
-          data-object-fit="cover" />
-
-        <div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-          <p style={{ marginTop: 0, marginRight: 0, marginBottom: 0, marginLeft: 0 }}>
-            <a href={href}><strong>{title} →</strong></a>
-          </p>
-        </div>
       </div>
     </div>
   );
@@ -257,46 +124,94 @@ const ProgramSection: React.FC = () => {
 };
 
 const StudentsSection: React.FC = () => {
+  const activites = activities ? shuffleArray(activities).slice(0, 1) : [];
+
   return (
-    <main className="wp-block-group alignfull site-content is-layout-flow wp-container-core-group-is-layout-2bb4a3bc wp-block-group-is-layout-flow"
-      id="big-img" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+    <main
+      className="wp-block-group alignfull site-content"
+      id="big-img"
+      style={{ margin: 0, padding: 0 }}
+    >
+      <div
+        className="wp-block-cover"
+        style={{
+          position: 'relative',
+          minHeight: '50vh',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 30px',
+          overflow: 'hidden',
+          backgroundImage: `url(${students})`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+      >
+        <span
+          aria-hidden="true"
+          className="wp-block-cover__background"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1,
+            background: 'linear-gradient(0deg, var(--wp--preset--color--primary) 17%, rgba(0,58,102,0) 73%)',
+            opacity: 0.9
+          }}
+        ></span>
 
-      <div className="wp-block-cover" style={{ paddingTop: '0px', paddingRight: '30px', paddingBottom: '0px', paddingLeft: '30px' }}>
-
-        <span aria-hidden="true"
-          className="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient"
-          style={{ background: 'linear-gradient(0deg,var(--wp--preset--color--primary) 17%,rgba(0,58,102,0) 73%)' }}></span>
-
-        <img decoding="async" className="wp-block-cover__image-background wp-image-6765" alt=""
-          src="https://wpzoom.s3.us-east-1.amazonaws.com/elementor/templates/assets/thumbs/edublock-pro/pexels-keira-burton-6147276.jpg"
-          data-object-fit="cover" />
-
-        <div className="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+        <div
+          className="wp-block-cover__inner-container is-layout-flow"
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            width: '100%',
+            color: 'white'
+          }}
+        >
           <div style={{ height: '15vh' }} aria-hidden="true" className="wp-block-spacer"></div>
 
-          <div className="wp-block-group is-style-default has-global-padding is-layout-constrained wp-container-core-group-is-layout-4383d167 wp-block-group-is-layout-constrained">
-            <div style={{ height: '80px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-            <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-              <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
-                <div className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-                  <h3 className="wp-block-heading has-text-align-left has-white-color has-text-color has-max-48-font-size">
-                    Meet our Students
+          <div className="wp-block-group is-layout-constrained">
+            <div className="wp-block-columns is-layout-flex">
+              <div className="wp-block-column" style={{ flexBasis: '50%' }}>
+                <div className="wp-block-group">
+                  <h3 className="wp-block-heading has-max-48-font-size text-white" style={{ marginBottom: '20px' }}>
+                    Activités
                   </h3>
 
-                  <p className="has-text-align-left has-lightgrey-color has-text-color">
-                    This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people.
+                  <p style={{ color: '#lightgrey', marginBottom: '30px', maxWidth: '500px' }}>
+                    Au-delà des cours, l'{APPOWNER} met à la disposition des étudiants un tas d'activités culturelles et académiques pour enrichir votre parcours.
                   </p>
 
-                  <div className="wp-block-buttons is-content-justification-left is-layout-flex wp-container-core-buttons-is-layout-fc4fd283 wp-block-buttons-is-layout-flex">
+                  <div className="wp-block-buttons is-layout-flex">
                     <div className="wp-block-button wpz-alt-button">
-                      <a className="wp-block-button__link wp-element-button">Alumni Spotlight</a>
+                      {activites.map((activity, index) => (
+                        <Link
+                          key={index}
+                          className="wp-block-button__link wp-element-button"
+                          to={activity.link}
+                        >
+                          {activity.name}
+                        </Link>
+                      ))}
                     </div>
                     <div className="wp-block-button is-style-fill">
-                      <a className="wp-block-button__link has-foreground-color has-white-background-color has-text-color has-background has-link-color wp-element-button"
-                        style={{ paddingTop: '8px', paddingRight: '24px', paddingBottom: '8px', paddingLeft: '24px' }}>
-                        Read Stories
-                      </a>
+                      <Link
+                        to="/evenements/alumni-spotlight"
+                        className="wp-block-button__link"
+                        style={{
+                          padding: '12px 24px',
+                          backgroundColor: 'white',
+                          color: 'black',
+                          borderRadius: '5px',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        En savoir plus
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -304,145 +219,10 @@ const StudentsSection: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ height: '10vh' }} aria-hidden="true" className="wp-block-spacer"></div>
+          <div style={{ height: '15vh' }} aria-hidden="true" className="wp-block-spacer"></div>
         </div>
       </div>
     </main>
-  );
-};
-
-const CourseItem: React.FC<{
-  icon: React.ReactNode;
-  title: string;
-  links: Array<{ text: string; href: string }>;
-}> = ({ icon, title, links }) => {
-  return (
-    <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
-      style={{ borderStyle: 'none', borderWidth: '0px', paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-
-      <div className="wp-block-group has-border-color has-lightgrey-border-color has-global-padding is-layout-constrained wp-container-core-group-is-layout-dbf27b9b wp-block-group-is-layout-constrained"
-        style={{ borderWidth: '1px', borderRadius: '20px', paddingTop: 'var(--wp--preset--spacing--small)', paddingRight: 'var(--wp--preset--spacing--small)', paddingBottom: 'var(--wp--preset--spacing--small)', paddingLeft: 'var(--wp--preset--spacing--small)' }}>
-
-        <div className="wp-block-columns are-vertically-aligned-center is-not-stacked-on-mobile is-layout-flex wp-container-core-columns-is-layout-d7d455e7 wp-block-columns-is-layout-flex"
-          style={{ borderStyle: 'none', borderWidth: '0px', borderRadius: '0px', paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-
-          <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '36px' }}>
-            {icon}
-          </div>
-
-          <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '100%' }}>
-            <h4 className="wp-block-heading has-primary-color has-text-color has-large-font-size">{title}</h4>
-          </div>
-        </div>
-
-        {links.map((link, index) => (
-          <React.Fragment key={index}>
-            <CourseLink text={link.text} href={link.href} />
-            {index < links.length - 1 && (
-              <hr className="wp-block-separator has-text-color has-lightgrey-color has-alpha-channel-opacity has-lightgrey-background-color has-background is-style-wide" />
-            )}
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const CourseLink: React.FC<{ text: string; href: string }> = ({ text, href }) => {
-  return (
-    <div className="wp-block-columns alignwide are-vertically-aligned-center is-not-stacked-on-mobile is-layout-flex wp-container-core-columns-is-layout-d7d455e7 wp-block-columns-is-layout-flex"
-      style={{ borderStyle: 'none', borderWidth: '0px', borderRadius: '0px', paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-
-      <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '95%' }}>
-        <p className="has-header-footer-color has-text-color has-link-color">
-          <a href={href}>{text}</a>
-        </p>
-      </div>
-
-      <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '5%' }}>
-        <div className="wp-block-outermost-icon-block items-justified-right">
-          <div className="icon-container" style={{ width: '16px', transform: 'rotate(0deg) scaleX(1) scaleY(1)' }}>
-            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.70998 12.7082L11.71 7.70823C11.801 7.61313 11.8724 7.50098 11.92 7.37823C12.02 7.13477 12.02 6.86169 11.92 6.61823C11.8724 6.49548 11.801 6.38334 11.71 6.28823L6.70998 1.28823C6.61674 1.19499 6.50605 1.12103 6.38423 1.07057C6.26241 1.02011 6.13184 0.99414 5.99998 0.99414C5.73368 0.99414 5.47828 1.09993 5.28998 1.28823C5.10168 1.47654 4.99589 1.73193 4.99589 1.99823C4.99589 2.26453 5.10168 2.51993 5.28998 2.70823L8.58998 5.99823L0.999982 5.99823C0.734765 5.99823 0.48041 6.10359 0.292874 6.29113C0.105338 6.47866 -1.83707e-05 6.73302 -1.83823e-05 6.99823C-1.83939e-05 7.26345 0.105338 7.5178 0.292874 7.70534C0.48041 7.89287 0.734765 7.99823 0.999982 7.99823L8.58998 7.99823L5.28998 11.2882C5.19625 11.3812 5.12186 11.4918 5.07109 11.6137C5.02032 11.7355 4.99418 11.8662 4.99418 11.9982C4.99418 12.1302 5.02032 12.2609 5.07109 12.3828C5.12186 12.5047 5.19625 12.6153 5.28998 12.7082C5.38294 12.802 5.49355 12.8764 5.6154 12.9271C5.73726 12.9779 5.86797 13.004 5.99998 13.004C6.13199 13.004 6.2627 12.9779 6.38456 12.9271C6.50642 12.8764 6.61702 12.802 6.70998 12.7082Z" fill="var(--wp--preset--color--secondary)"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const CoursesSection: React.FC = () => {
-  const engineeringIcon = (
-    <div className="wp-block-outermost-icon-block">
-      <div className="icon-container" style={{ width: '36px', transform: 'rotate(0deg) scaleX(1) scaleY(1)' }}>
-        <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity="0.3" d="M3.31433 5.4849H9.94302V12.1136H3.31433V5.4849ZM19.8861 22.0566H26.5147V28.6853H19.8861V22.0566ZM3.31433 22.0566H9.94302V28.6853H3.31433V22.0566ZM22.637 4.68945L17.9472 9.36268L22.637 14.0525L27.3268 9.36268L22.637 4.68945Z" fill="var(--wp--preset--color--secondary)"></path>
-          <path d="M22.637 0L13.2574 9.36302L22.637 18.7426L32.0166 9.36302L22.637 0ZM17.9472 9.36302L22.637 4.67323L27.3268 9.36302L22.637 14.0528L17.9472 9.36302ZM0 2.1709V15.4283H13.2574V2.1709H0ZM9.94304 12.1139H3.31434V5.48524H9.94304V12.1139ZM0 32H13.2574V18.7426H0V32ZM3.31434 22.057H9.94304V28.6857H3.31434V22.057ZM16.5717 18.7426V32H29.8291V18.7426H16.5717ZM26.5148 28.6857H19.8861V22.057H26.5148V28.6857Z" fill="var(--wp--preset--color--secondary)"></path>
-        </svg>
-      </div>
-    </div>
-  );
-
-  const economicsIcon = (
-    <div className="wp-block-outermost-icon-block">
-      <div className="icon-container" style={{ width: '36px', transform: 'rotate(0deg) scaleX(1) scaleY(1)' }}>
-        <svg width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.2727 0H8.71273C7.11273 0 5.81818 1.30909 5.81818 2.90909H20.3636C21.9636 2.90909 23.2727 4.21818 23.2727 5.81818V24.7273L26.1818 26.1818V2.90909C26.1818 1.30909 24.8727 0 23.2727 0ZM17.4545 5.81818H2.90909C1.30909 5.81818 0 7.12727 0 8.72727V32L10.1818 27.6364L20.3636 32V8.72727C20.3636 7.12727 19.0545 5.81818 17.4545 5.81818ZM17.4545 27.5927L11.3309 24.96L10.1818 24.4655L9.03273 24.96L2.90909 27.5927V8.72727H17.4545V27.5927Z" fill="var(--wp--preset--color--secondary)"></path>
-          <path opacity="0.3" d="M2.90912 27.592L10.1818 24.4647L17.4546 27.592V8.72656H2.90912V27.592Z" fill="var(--wp--preset--color--secondary)"></path>
-        </svg>
-      </div>
-    </div>
-  );
-
-  const educationIcon = (
-    <div className="wp-block-outermost-icon-block">
-      <div className="icon-container" style={{ width: '36px', transform: 'rotate(0deg) scaleX(1) scaleY(1)' }}>
-        <svg width="32" height="29" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity="0.3" d="M2.90918 9.03273V23.4473C4.56736 22.8509 6.26918 22.5455 8.00009 22.5455C9.731 22.5455 11.4328 22.8509 13.091 23.4473V9.04727C11.4765 8.36364 9.74554 8 8.00009 8C6.22554 8 4.52373 8.34909 2.90918 9.03273Z" fill="var(--wp--preset--color--secondary)"></path>
-          <path d="M26.1819 0L18.9092 7.27273V21.0909L26.1819 14.5455V0Z" fill="var(--wp--preset--color--secondary)"></path>
-          <path d="M31.2291 6.83725C30.5455 6.48816 29.8327 6.19725 29.0909 5.94998V23.4482C27.4327 22.8518 25.7309 22.5463 24 22.5463C21.2364 22.5463 18.5018 23.3318 16 24.8445V7.24452C13.6436 5.8918 10.9236 5.0918 8 5.0918C5.39636 5.0918 2.93818 5.7318 0.770909 6.83725C0.290909 7.06998 0 7.57907 0 8.11725V25.6882C0 26.5318 0.683636 27.1282 1.45455 27.1282C1.68727 27.1282 1.92 27.07 2.15273 26.9536C3.91273 26.0373 5.89091 25.4554 8 25.4554C11.0109 25.4554 13.7891 26.6482 16 28.3645C18.2109 26.6482 20.9891 25.4554 24 25.4554C26.1091 25.4554 28.0873 26.0373 29.8473 26.9682C30.08 27.0845 30.3127 27.1427 30.5455 27.1427C31.3018 27.1427 32 26.5463 32 25.7027V8.11725C32 7.57907 31.7091 7.06998 31.2291 6.83725ZM13.0909 23.4482C11.4327 22.8518 9.73091 22.5463 8 22.5463C6.26909 22.5463 4.56727 22.8518 2.90909 23.4482V9.03361C4.52364 8.34998 6.22545 8.00089 8 8.00089C9.74545 8.00089 11.4764 8.36452 13.0909 9.04816V23.4482Z" fill="var(--wp--preset--color--secondary)"></path>
-        </svg>
-      </div>
-    </div>
-  );
-
-  const courseLinks = [
-    { text: 'Non arcu risus quis varius', href: 'index.html' },
-    { text: 'Velit scelerisque in dictum', href: 'index.html' },
-    { text: 'Amet mattis vulputate enim', href: 'index.html' },
-    { text: 'Turpis egestas sed tempus urna', href: 'index.html' },
-    { text: 'Interdum posuere lorem ipsum', href: 'index.html' },
-  ];
-
-  return (
-    <div id="links-3col" className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-      <div style={{ marginTop: 0, marginBottom: 0, height: '120px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-      <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-        <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
-          <h2 className="wp-block-heading has-text-align-left has-primary-color has-text-color has-max-48-font-size">
-            Choose a Course
-          </h2>
-          <p className="has-tertiary-color has-text-color">
-            This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people.
-          </p>
-        </div>
-        <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}></div>
-      </div>
-
-      <div style={{ height: '46px' }} aria-hidden="true" className="wp-block-spacer"></div>
-
-      <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex" style={{ borderRadius: '0px' }}>
-        <CourseItem icon={engineeringIcon} title="Engineering" links={courseLinks} />
-        <CourseItem icon={economicsIcon} title="Economics" links={courseLinks} />
-        <CourseItem icon={educationIcon} title="Education" links={courseLinks} />
-      </div>
-
-      <div className="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style={{ marginTop: '0px' }}>
-        <div style={{ marginTop: 0, marginBottom: 0, height: '120px' }} aria-hidden="true" className="wp-block-spacer"></div>
-      </div>
-    </div>
   );
 };
 
@@ -741,6 +521,8 @@ const ResearchSection: React.FC = () => {
 };
 
 const EnrollSection: React.FC = () => {
+  const notify = () => toast('les inscriptions sont fermées pour le moment, mais n\'hésitez pas à nous contacter pour plus d\'informations !');
+
   return (
     <div className="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style={{ marginTop: '0px' }}>
       <div style={{ marginTop: 0, marginBottom: 0, height: '120px' }} aria-hidden="true" className="wp-block-spacer"></div>
@@ -752,15 +534,15 @@ const EnrollSection: React.FC = () => {
           <div className="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
             <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '86%' }}>
               <h2 className="wp-block-heading has-text-align-left has-white-color has-text-color has-max-48-font-size">
-                Ready to enroll in <br />our University?
+                Prêt à franchir une nouvelle étape <br />dans votre parcours académique ?
               </h2>
             </div>
 
             <div className="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '14%' }}>
               <div className="wp-block-buttons wpz-alt-button is-content-justification-space-between is-layout-flex wp-block-buttons-is-layout-flex">
                 <div className="wp-block-button alignright wpz-alt-button">
-                  <a className="wp-block-button__link wp-element-button" style={{ borderRadius: '4px' }}>
-                    Get in touch
+                  <a className="wp-block-button__link wp-element-button" style={{ borderRadius: '4px' }} onClick={notify}>
+                    Inscription
                   </a>
                 </div>
               </div>

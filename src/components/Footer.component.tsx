@@ -1,20 +1,26 @@
+import { Link } from 'react-router-dom';
 import { APPDNS, APPNAME, APPCREATOR } from '../utils/utils.constants';
+import { routes } from '../utils/utils.routes';
 import { SocialLinks } from './subcomponents/SocialLinks';
+import { IoIosArrowForward } from 'react-icons/io';
 
-const FooterColumn: React.FC<{ title: string; links: Array<{ href: string; label: string; current?: boolean }> }> = ({ title, links }) => {
+const ArrowForward = IoIosArrowForward as any;
+
+const FooterColumn: React.FC<{ title: string; links: Array<{ href: string; label: string; current?: boolean, isExternal?: boolean }> }> = ({ title, links }) => {
   return (
     <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-      <h3 className="wp-block-heading has-secondary-color has-text-color"
+      <h3 className="wp-block-heading has-white-color has-text-color-inherit"
         style={{ marginBottom: 'var(--wp--preset--spacing--50)' }}>
         {title}
       </h3>
 
-      <ul className="wp-block-page-list">
+      <ul className="wp-block-page-list" style={{ listStyleType: 'none', paddingLeft: 0 }}>
         {links.map((link, index) => (
-          <li key={index} className={`wp-block-pages-list__item ${link.current ? 'current-menu-item menu-item-home' : ''}`}>
-            <a className="wp-block-pages-list__item__link" href={link.href} {...(link.current && { 'aria-current': 'page' })}>
+          <li key={index} className={`wp-block-pages-list__item pt-3 ${link.current ? 'current-menu-item menu-item-home' : ''}`}>
+            <Link className="wp-block-pages-list__item__link" to={link.href} {...(link.current && { 'aria-current': 'page' })} target={link.isExternal ? '_blank' : '_self'}>
+              <ArrowForward style={{ marginRight: '10px', fontSize: 11 }} />
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -47,35 +53,33 @@ export const Footer: React.FC = () => {
           </div>
 
           <FooterColumn
-            title="Explore"
+            title="Liens rapides"
             links={[
-              { href: '#', label: 'About' },
-              { href: '#', label: 'Academics' },
-              { href: '#', label: 'Blog' },
-              { href: '#', label: 'Campus' },
-              { href: '#', label: 'Contact' },
-              { href: '#', label: 'Events' },
-              { href: '#', label: 'Homepage', current: true },
-              { href: '#', label: 'Privacy Policy' },
+              { href: routes.HOME, label: 'Page d\'accueil', current: true },
+              { href: routes.ABOUT, label: 'À propos' },
+              { href: routes.ADMISSION, label: 'Admissions' },
+              { href: routes.KAUTA, label: 'Kauta' },
+              { href: routes.KAUTA_MATERNEL, label: 'Kauta Maternelle' },
+              { href: routes.METANOIA, label: 'Métanoia' },
+              { href: routes.CONTACTS, label: 'Contacts' },
+
             ]}
           />
 
           <FooterColumn
             title="Resources"
             links={[
-              { href: '#', label: 'About' },
-              { href: '#', label: 'Academics' },
-              { href: '#', label: 'Blog' },
-              { href: '#', label: 'Campus' },
-              { href: '#', label: 'Contact' },
-              { href: '#', label: 'Events' },
-              { href: '#', label: 'Homepage', current: true },
-              { href: '#', label: 'Privacy Policy' },
+              { href: routes.ARTICLES, label: 'Blog et Articles' },
+              { href: routes.ACTIVITIES, label: 'Événements' },
+              { href: routes.RESSOURCES, label: 'Ressources' },
+              { href: routes.ANCIENS, label: 'Anciens de l\'' + APPNAME, isExternal: true },
+              { href: routes.COMPLAINTS, label: 'Plaintes', isExternal: true },
+              { href: routes.LIBRARY, label: 'Bibliotheque', isExternal: true },
             ]}
           />
 
           <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-            <h3 className="wp-block-heading has-secondary-color has-text-color"
+            <h3 className="wp-block-heading has-white-color has-text-color"
               style={{ marginBottom: 'var(--wp--preset--spacing--50)' }}>
               Newsletter
             </h3>
@@ -95,7 +99,7 @@ export const Footer: React.FC = () => {
           <p className="has-tertiary-color has-text-color">Copyright &copy; {new Date().getFullYear()} {APPNAME}</p>
 
           <p className="has-tertiary-color has-text-color">
-            Designed by <a href={APPDNS} target="_blank" rel="noreferrer noopener">{APPCREATOR}</a>
+            Designed by <a href={APPDNS} className='text-white' target="_blank" rel="noreferrer noopener">{APPCREATOR}</a>
           </p>
         </div>
       </div>
