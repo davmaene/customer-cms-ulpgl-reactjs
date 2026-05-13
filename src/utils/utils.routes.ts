@@ -21,4 +21,5 @@ export enum routes {
     METANOIA = '/app/ecole-secondaire-metanoia',
     KAUTA_MATERNEL = '/app/ecole-maternelle-kauta',
     ANCIENS = '/app/anciens-de-lulpgl',
+    DASHBOARD = '/dashboard',
 }
