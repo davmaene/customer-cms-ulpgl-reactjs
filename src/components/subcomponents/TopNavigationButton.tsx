@@ -1,3 +1,4 @@
+import { routes } from "../../utils/utils.routes";
 import { NavItem } from "./NavItem";
 import { CiMenuFries } from "react-icons/ci";
 
@@ -41,7 +42,7 @@ export const TopNavigation: React.FC = () => {
                             <ul className="wp-block-navigation__container has-small-font-size is-responsive items-justified-right wp-block-navigation has-small-font-size top-navigation">
                                 <NavItem href="/portail/student" label="Pour étudiants" />
                                 <NavItem href="/portail/teachers" label="Pour enseignants" />
-                                <NavItem href="/others/library" label="Bibliothèque" />
+                                <NavItem href={routes.BIBLIO} label="Bibliothèque" />
                                 <NavItem href="/portail/metanoia" label="Metanoia" />
                                 <NavItem href="/portail/kauta" label="Kauta" />
                                 <NavItem href="/portail/nursery" label="Crèche" />

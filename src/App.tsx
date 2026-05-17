@@ -24,16 +24,9 @@ import { LoadingWrapper } from "./components/Loaderwrapper";
 import { Centers } from "./pages/Centers";
 import { Profile } from "./pages/Profile";
 import { Domaines } from "./pages/Domaines";
-import { DashboardLayout } from "./pages/dashboard/DashboardLayout";
-import { DashboardOverview } from "./pages/dashboard/DashboardOverview";
-import { DashboardArticles } from "./pages/dashboard/DashboardArticles";
-import { DashboardStaff } from "./pages/dashboard/DashboardStaff";
-import { DashboardCentres } from "./pages/dashboard/DashboardCentres";
-import { DashboardDomaines } from "./pages/dashboard/DashboardDomaines";
-import { LoginPage } from "./pages/dashboard/LoginPage";
 import { AuthProvider } from "./contexts/AuthContext";
 import { DataProvider } from "./contexts/DataContext";
-import { ProtectedRoute } from "./components/dashboard/ProtectedRoute";
+import { Library } from "./pages/Bilbiotheques";
 
 function App() {
   return (
@@ -41,7 +34,8 @@ function App() {
       <DataProvider>
         <Router>
           <Routes>
-            <Route path="/dashboard/login" element={<LoginPage />} />
+
+            {/* <Route path="/dashboard/login" element={<LoginPage />} />
 
             <Route path={`${routes.DASHBOARD}/*`} element={
               <ProtectedRoute>
@@ -53,7 +47,7 @@ function App() {
               <Route path="staff" element={<DashboardStaff />} />
               <Route path="centres" element={<DashboardCentres />} />
               <Route path="domaines" element={<DashboardDomaines />} />
-            </Route>
+            </Route> */}
 
             <Route path="*" element={
               <div data-rsssl="1" className="home wp-singular page-template page-template-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-edublock-pro tribe-js">
@@ -75,6 +69,7 @@ function App() {
                           <Route path={`${routes.ARTICLES}/:category?`} element={<Articles />} />
                           <Route path={`${routes.ARTICLESDETAILS}/:article`} element={<ArticleDerails />} />
                           <Route path={routes.FAQ} element={<Faq />} />
+                          <Route path={routes.BIBLIO} element={<Library />} />
                           <Route path="*" element={<NotFound />} />
                         </Routes>
                       </div>

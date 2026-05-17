@@ -45,15 +45,17 @@ export const Center: React.FC = () => {
 
                 <div className="row">
                     <aside className="col-md-4 pe-md-5">
-                        <ProfileCard
-                            profile={direction ?? {
-                                slug: "",
-                                name: "ULPGL",
-                                role: "Direction",
-                                uuid: randomNumber(10).toString()
-                            }}
-                            showDescription={false}
-                        />
+                        {direction?.image && (
+                            <ProfileCard
+                                profile={direction ?? {
+                                    slug: "",
+                                    name: "ULPGL",
+                                    role: "Direction",
+                                    uuid: randomNumber(10).toString()
+                                }}
+                                showDescription={false}
+                            />
+                        )}
                         <SocialShare
                             post_name={flug ?? ""}
                         />

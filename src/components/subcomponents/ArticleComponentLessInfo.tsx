@@ -11,6 +11,9 @@ export const ArticleCardLessInfo: React.FC<{ post: Post }> = ({ post }) => {
         <div className="col-lg-6">
             <Link to={link} className='d-block text-decoration-none text-dark'>
                 <div className="wp-block-post type-post status-publish format-standard hentry">
+                    <figure className="wp-block-image size-large has-custom-border" style={{ margin: '0 0 15px 0' }}>
+                        <img decoding="async" src={post?.post_image} alt="" className="wp-image-5969" style={{ borderRadius: '10px', width: '100%', objectFit: 'cover' }} />
+                    </figure>
                     <h5
                         className="has-link-color wp-block-post-title has-text-color has-tertiary-color has-medium-font-size"
                         style={{ margin: '0 0 var(--wp--preset--spacing--x-small) 0' }}
@@ -40,15 +43,14 @@ export const ArticleCardLessInfo: React.FC<{ post: Post }> = ({ post }) => {
                     </div>
 
                     <Link
-                        className="wp-block-read-more has-text-color has-secondary-color has-background has-white-background-color"
+                        className="wp-block-read-more has-text-color has-primary-color has-background has-white-background-color"
                         style={{ padding: 0 }}
                         to={link}
                     >
                         <strong>Lire plus <ArrowForward style={{ marginLeft: '10px' }} /></strong>
-                        <span className="screen-reader-text">: {post.post_title}</span>
+                        {/* <span className="screen-reader-text- text-danger-">: {post.post_title}</span> */}
                     </Link>
-
-                    <div style={{ height: '71px' }} aria-hidden="true" className="wp-block-spacer"></div>
+                    <div style={{ height: '10px' }} aria-hidden="true" className="wp-block-spacer"></div>
                 </div>
             </Link>
         </div>

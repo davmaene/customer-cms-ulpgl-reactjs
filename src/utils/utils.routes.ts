@@ -16,6 +16,7 @@ export enum routes {
     COMPLAINTS = 'https://plaintes.ulpgl.net',
     TFE = 'https://sgt.ulpgl.net',
     LIBRARY = 'https://bibliotheque.ulpgl.net',
+    BIBLIO = '/app/bibliotheque',
     RESSOURCES = '/app/ressources',
     KAUTA = '/app/ecole-primaire-kauta',
     METANOIA = '/app/ecole-secondaire-metanoia',

@@ -40,13 +40,13 @@ export const Articles: React.FC = () => {
                             Articles
                         </h2>
                         <p className="has-tertiary-color has-text-color">
-                            Pour ne rien manquer de nos actualités, abonnez-vous à notre newsletter.
+                            Restez informé de toutes nos actualités, publications et événements récents. Pour ne rien manquer des nouveautés, analyses et annonces importantes, abonnez-vous dès maintenant à notre newsletter et recevez directement nos contenus dans votre boîte mail.
                         </p>
                     </div>
                     <div className="wp-block-column" style={{ flexBasis: '50%' }}></div>
                 </div>
 
-                <div style={{ height: '81px' }} aria-hidden="true" className="wp-block-spacer"></div>
+                <div style={{ height: '8px' }} aria-hidden="true" className="wp-block-spacer"></div>
 
                 {/* Query/Post Loop Section */}
                 <div className="wp-block-query is-layout-flow wp-block-query-is-layout-flow">

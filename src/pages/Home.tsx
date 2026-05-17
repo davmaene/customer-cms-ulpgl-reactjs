@@ -45,7 +45,7 @@ const ArticlesSection: React.FC = () => {
         <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
           <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
             <h2 className="wp-block-heading has-primary-color has-text-color has-max-48-font-size">
-              Articles et dernières informations
+              Articles et dernières nouvelles
             </h2>
             <p className="has-tertiary-color has-text-color">
               Restez informé des avancées de nos projets et découvrez des analyses d'experts pour approfondir vos connaissances et optimiser votre quotidien académique.
@@ -56,15 +56,15 @@ const ArticlesSection: React.FC = () => {
 
         <div style={{ height: '60px' }} aria-hidden="true" className="wp-block-spacer"></div>
 
-        <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-          {posts.map((post, idx) => {
+        <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f844935665 wp-block-columns-is-layout-flex">
+          {posts.slice(0, 3).map((post, idx) => {
             const key = randomNumber();
 
             return (
               <ArticleCard
                 key={key}
                 id={893}
-                post_image={heroImage}
+                post_image={post.post_image}
                 post_title={post.post_title}
                 post_excerpt={post.post_excerpt}
                 post_author={post.post_author}

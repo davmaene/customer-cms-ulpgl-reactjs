@@ -21,7 +21,7 @@ export const faqs = [
     { number: "12.", question: "Offrez-vous des cours en ligne ?", answer: "Oui, certaines formations utilisent une plateforme e-learning pour compléter les cours en présentiel." }
 ]
 
-export const domainsData: Array<{ domaine: string; href: string; faculties: Array<{ faculte: string; href: string; filiaires: Array<{ filiere: string, profil?: string, responsable: StaffMember, saf: StaffMember }> }> }> = [
+export const domainsData: Array<{ domaine: string; href: string; faculties: Array<{ faculte: string; href: string; filiaires: Array<{ filiere: string, href?: string, profil?: string, responsable: StaffMember, saf: StaffMember }> }> }> = [
     {
         domaine: "Sciences et Technologies",
         href: "/sciences-et-technologies",
@@ -32,6 +32,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Sciences de l'Ingénieur",
+                        href: "/sciences-de-l-ingenieur",
                         profil: "",
                         saf: {
                             uuid: randomNumber(),
@@ -60,6 +61,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Sciences Économiques",
+                        href: "/sciences-economiques",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -76,6 +78,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                     },
                     {
                         filiere: "Sciences de Gestion",
+                        href: "/sciences-de-gestion",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -104,6 +107,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Sciences Psychologiques",
+                        href: "/sciences-psychologiques",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -120,6 +124,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                     },
                     {
                         filiere: "Sciences de l'Éducation",
+                        href: "/sciences-de-l-education",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -148,6 +153,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Médecine Humaine",
+                        href: "/medecine-humaine",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -164,6 +170,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                     },
                     {
                         filiere: "Santé Publique",
+                        href: "/sante-publique",
                         profil: "",
                         saf: {
                             name: "Adolphe Kankisingi",
@@ -192,6 +199,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Sciences Juridiques",
+                        href: "/sciences-juridiques",
                         profil: "",
                         saf: {
                             name: "Me. Samuel Kamasita",
@@ -220,6 +228,7 @@ export const domainsData: Array<{ domaine: string; href: string; faculties: Arra
                 filiaires: [
                     {
                         filiere: "Théologie Protestante",
+                        href: "/theologie-protestante",
                         profil: "",
                         saf: {
                             uuid: randomNumber(),
@@ -370,11 +379,11 @@ export const centers: Center[] = [
 
 export const keyFacts: KeysFacts[] = [
     { title: `Année de création de l'${APPOWNER}`, value: '1985' },
-    { title: 'Total d\'étudiant cette année', value: '5000' },
+    { title: 'Total d\'étudiant cette année', value: '3800' },
     { title: 'Nombre d\'étudiants internes dans les home', value: '15%' },
-    { title: 'Nombre des campus (Campus Moise et Campus Salomon)', value: '2' },
+    { title: 'Nombre des campus ( Campus Moise et Campus Salomon )', value: '2' },
     // { title: 'Gardens, greenspaces, playing fields and recreational zones', value: '25+' },
-    { title: 'Nombre de professeurs permanents', value: '---' },
+    { title: 'Nombre de professeurs permanents', value: '115' },
     // { title: 'living alumni, as of May 2022', value: '>200k' },
     { title: 'Nombre des dipolmes delivrés depuis la création', value: '---' },
 ];
@@ -554,54 +563,139 @@ export const posts: Post[] = [
     {
         id: 1,
         post_author: "It Support",
-        post_date: "2026-03-28 12:00:00",
-        post_date_gmt: "2026-03-28 11:00:00",
-        post_title: "L'essor de l'Intelligence Artificielle en 2026",
-        post_content: "<p>L'IA continue de transformer nos workflows quotidiens...</p>",
-        post_category: "Technologie",
-        post_excerpt: "Découvrez comment l'IA redéfinit la productivité cette année.",
+        post_date: "2026-05-15 15:00:00",
+        post_date_gmt: "2026-05-15 13:00:00",
+        post_title: "Célébration de la Journée Internationale du Travail à l'ULPGL GOMA",
+        post_content: `<h1>Célébration de la Journée Internationale du Travail à l'ULPGL GOMA</h1>
+<p>
+    Ce vendredi 15 mai, l'ULPGL - Goma a célébré la Journée du Travail sous le thème : 
+    <b>« Travailler dans la dignité, défendre la justice sociale, préserver la Nation »</b>, 
+    un thème développé par le Prof. Mazambi Riziki.
+</p>
+<p>
+    Le moment fort a été l'hommage vibrant rendu à trois piliers de l'université admis à la retraite :
+    <br>🔹 <b>M. Baguma Chishoshola Oswald</b> (Directeur du Personnel)
+    <br>🔹 <b>M. Bakega Akilimali Dieudonné</b> (Directeur du Patrimoine)
+    <br>🔹 <b>M. Mawazo Kasereka</b> (Enseignant à METANOIA)
+</p>
+<p>
+    Sous l'égide du Recteur <b>Prof. WASSO Misona Joseph</b> et du SGAD 
+    <b>Prof. Vincent Muderhwa</b>, la communauté universitaire a exprimé sa gratitude 
+    aux retraités pour leurs loyaux services en leur offrant des cadeaux.
+</p>
+<p>
+    La journée s’est clôturée par un repas partagé afin de renforcer la communion et 
+    la cohésion au sein de la famille ULPGL.
+</p>`,
+        post_category: "Evenement",
+        post_excerpt: "Célébration de la Journée Internationale du Travail à l'ULPGL GOMA : entre réflexion thématique et hommage aux nouveaux netraités",
         post_status: "publish",
         comment_status: true,
         ping_status: "open",
-        post_name: "essor-ia-2026",
+        post_name: "celebration-de-la-journee-internationale-du-travail-a-l-ulpgpl-goma",
         post_modified: "2026-03-28 12:15:00",
         post_type: "post",
         comment_count: 12,
-        post_image: "https://picsum.photos/id/10/800/600"
+        post_image: "https://res.cloudinary.com/zaqxswcde-/image/upload/v1779010302/Journee-du-travail_rjyd5g.png"
     },
     {
-        id: 2,
+        id: 1,
         post_author: "It Support",
-        post_date: "2026-03-25 09:30:00",
-        post_date_gmt: "2026-03-25 08:30:00",
-        post_title: "Design Minimaliste : Moins c'est Mieux",
-        post_content: "<p>Le minimalisme n'est pas qu'une esthétique, c'est une philosophie...</p>",
-        post_category: "Design",
-        post_excerpt: "Pourquoi le design épuré reste la tendance majeure du web.",
+        post_date: "2026-05-15 15:00:00",
+        post_date_gmt: "2026-05-15 13:00:00",
+        post_title: "Immersion au credda : l'ULPGL - goma au cœur de l'écologie",
+        post_content: `<h1>IMMERSION AU CREDDA : L'ULPGL-GOMA AU CŒUR DE L'ÉCOLOGIE</h1>
+
+<p>
+    Dans le cadre des enseignements de droit de l’environnement, les étudiants de l'ULPGL-Goma ont visité 
+    le site écologique de la clinique de droit de l’environnement au CREDDA 
+    (Centre de Recherche sur la Démocratie et le Développement en Afrique) pour une immersion scientifique de terrain.
+</p>
+
+<p>
+    Sous la direction du <b>Prof. Dr. Kennedy KIHANGI BINDU</b>, ce centre s'impose comme un laboratoire 
+    d'excellence alliant protection de la nature et défense des droits humains, et offre aux étudiants 
+    des opportunités de contact direct avec les communautés locales.
+</p>
+
+<p>
+    <b>Points clés de la visite :</b><br>
+    - Étude des stratégies de conservation de la biodiversité.<br>
+    - Analyse du lien entre environnement et droits fondamentaux.<br>
+    - Échanges techniques avec les chercheurs du centre.<br>
+    - Participation aux activités de reboisement et d’assainissement.
+</p>
+
+<p>
+    Comme l'indique le Directeur <b>Prof. Kennedy Kihangi BINDU</b>, la recherche scientifique est 
+    un moteur indispensable pour répondre aux défis climatiques actuels.
+</p>
+
+<p>
+    Félicitations aux étudiants pour leur engagement écologique dans la lutte contre les changements climatiques.
+</p>
+
+<p>
+    Pour plus d'informations sur les activités du centre, visitez le site officiel :<br>
+    <b>https://credda-ulpgl.net/</b><br>
+    E-mail : <b>kenedybindu@gmail.com</b>
+</p>`,
+        post_category: "Evenement",
+        post_excerpt: `Dans le cadre des enseignements de droit de l’environnement, les étudiants de l'ULPGL-Goma ont visité le site écologique de la clinique de droit de l’environnement au CREDDA (Centre de Recherche sur la Démocratie et le Développement en Afrique ) pour une immersion scientifique de terrain`,
         post_status: "publish",
-        comment_status: false,
-        ping_status: "closed",
-        post_name: "design-minimaliste",
+        comment_status: true,
+        ping_status: "open",
+        post_name: "immersion-au-credda-l-ulpgpl-goma-au-coeur-de-l-ecologie",
+        post_modified: "2026-03-28 12:15:00",
         post_type: "post",
-        comment_count: 5,
-        post_image: "https://picsum.photos/id/20/800/600"
+        comment_count: 12,
+        post_image: "https://res.cloudinary.com/zaqxswcde-/image/upload/v1779010966/678965269_966177915801663_4355927111331524904_n_wrpkzf.jpg"
     },
     {
         id: 3,
         post_author: "It Support",
-        post_date: "2026-03-20 15:45:00",
-        post_date_gmt: "2026-03-20 14:45:00",
-        post_title: "Guide de survie du développeur moderne",
-        post_content: "<p>Apprendre à apprendre est la compétence ultime...</p>",
-        post_category: "Développement",
-        post_excerpt: "Les outils et méthodes pour ne pas être dépassé en programmation.",
+        post_date: "2026-04-13 17:00:00",
+        post_date_gmt: "2026-04-13 15:00:00",
+        post_title: "Élections à l'ULPGL : Un nouveau Porte-Parole pour les étudiants",
+
+        post_content: `<h1>Élections à l'ULPGL : Un nouveau Porte-Parole pour les étudiants</h1>
+
+<p>
+    L'Université Libre des Pays des Grands Lacs a récemment clôturé le processus électoral conduit par le 
+    <b>Professeur Docteur AARON Lupasula Lubango PhD</b>, visant à désigner le nouveau Porte-Parole (PP) des étudiants.
+</p>
+
+<p>
+    À l'issue du scrutin, le Recteur, le <b>Professeur Docteur Wasso Misona Joseph</b>, a adressé ses vives félicitations à l'élu. 
+    Tout en saluant sa victoire, il a tenu à souligner l'ampleur de la mission qui commence.
+</p>
+
+<p>
+    Les défis sont multiples : le nouvel élu devra naviguer entre la gestion des attentes estudiantines et l'amélioration du cadre de vie universitaire.
+</p>
+
+<p>
+    Le <b>Professeur Wasso Misona</b> a rappelé que ce mandat doit être placé sous le signe du service et de l'excellence pour le rayonnement de l'institution.
+</p>
+
+<p>
+    💫 Félicitations au nouveau Porte-Parole et bon succès dans ses nouvelles fonctions.
+</p>`,
+
+        post_category: "Evenement",
+        post_excerpt: "Élections à l'ULPGL : désignation du nouveau Porte-Parole des étudiants et message du Recteur",
+
         post_status: "publish",
         comment_status: true,
         ping_status: "open",
-        post_name: "guide-survie-dev",
+
+        post_name: "elections-a-l-ulpgl-un-nouveau-porte-parole-pour-les-etudiants",
+
+        post_modified: "2026-04-13 17:00:00",
         post_type: "post",
-        comment_count: 24,
-        post_image: "https://picsum.photos/id/30/800/600"
+        comment_count: 0,
+
+        post_image: "https://res.cloudinary.com/zaqxswcde-/image/upload/v1779012477/669728989_957250270027761_7191683212827667898_n_ohaysv.jpg"
     }
 ];
 
