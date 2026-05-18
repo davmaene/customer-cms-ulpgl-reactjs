@@ -11,8 +11,6 @@ import { Hrseparator } from '../components/subcomponents/Hrseparator';
 import { ContactLink } from '../components/subcomponents/ContactComponent';
 import { ProfileCard } from '../components/subcomponents/ProfileCard';
 
-const LuChevronRightIcon = LuChevronRight as any;
-
 export const Center: React.FC = () => {
     const { center } = useParams<{ center: string }>();
     const [item, setItem] = useState<Center | null>(null);

@@ -378,4 +378,9 @@ $prefix: "mo-";
     align-items: stretch;
 }
 
+.top-navigation .wp-block-navigation-item .active {
+    color: #eee !important;
+    font-weight: 700
+}
+
 @import "bootstrap";

@@ -70,7 +70,7 @@ export const MainNavigation: React.FC = () => {
                                             href: '#',
                                             subItems: faculty.filiaires.map(filiere => ({
                                                 label: filiere.filiere,
-                                                href: `${faculty.href}/${filiere.filiere.toLowerCase()}`
+                                                href: routes.DOMAINES.concat(faculty.href).concat(filiere.href)
                                             }))
                                         }))
                                     }))}

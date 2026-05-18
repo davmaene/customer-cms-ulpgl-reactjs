@@ -40,12 +40,12 @@ export const TopNavigation: React.FC = () => {
                         <div className="wp-block-navigation__responsive-container-content"
                             data-wp-watch="callbacks.focusFirstElement" id="modal-1-content">
                             <ul className="wp-block-navigation__container has-small-font-size is-responsive items-justified-right wp-block-navigation has-small-font-size top-navigation">
-                                <NavItem href="/portail/student" label="Pour étudiants" />
-                                <NavItem href="/portail/teachers" label="Pour enseignants" />
+                                {/* <NavItem href="/portail/student" label="Pour étudiants" /> */}
+                                {/* <NavItem href="/portail/teachers" label="Pour enseignants" /> */}
                                 <NavItem href={routes.BIBLIO} label="Bibliothèque" />
-                                <NavItem href="/portail/metanoia" label="Metanoia" />
-                                <NavItem href="/portail/kauta" label="Kauta" />
-                                <NavItem href="/portail/nursery" label="Crèche" />
+                                <NavItem href={routes.METANOIA} label="Metanoia" />
+                                <NavItem href={routes.KAUTA} label="Kauta" />
+                                <NavItem href={routes.KAUTA_MATERNEL} label="Crèche" />
                             </ul>
                         </div>
                     </div>
