@@ -26,6 +26,7 @@ import { Domaines } from "./pages/Domaines";
 import { Library } from "./pages/Bilbiotheques";
 import { Metanoia } from "./pages/Metanoia";
 import { Kauta } from "./pages/Kauta";
+import { Building } from "./pages/Building";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                       <Route path={routes.CONTACTS} element={<Contacts />} />
                       <Route path={routes.ABOUT} element={<About />} />
                       <Route path={routes.DOMAINES} element={<Domaines />} />
+                      <Route path={`${routes.DOMAINES}/:faculty/:filiaire`} element={<Building />} />
                       <Route path={`${routes.CENTRES}/:center`} element={<Center />} />
                       <Route path={routes.CENTRES} element={<Centers />} />
                       <Route path={`${routes.PROFILE}/:profile`} element={<Profile />} />

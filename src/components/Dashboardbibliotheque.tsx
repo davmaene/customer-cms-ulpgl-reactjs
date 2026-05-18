@@ -10,11 +10,13 @@ import {
 } from '@ant-design/icons';
 import { Colors } from '../utils/utils.colors';
 import roi from "../assets/others/reglement_BU-ULPGL.pdf"
+import { NavLink } from 'react-router-dom';
+import { routes } from '../utils/utils.routes';
 
 const { Title, Text, Paragraph } = Typography;
 
 export const LibraryDashboard: React.FC = () => {
-    const onDownloadROI = async () => {
+    const onDownloadROI = async (e: React.MouseEvent<HTMLElement>) => {
         window.open(roi, "_blank")
     }
 
@@ -69,9 +71,9 @@ export const LibraryDashboard: React.FC = () => {
                     <Paragraph type="secondary" style={{ textAlign: "center", marginBottom: '24px' }}>
                         Le fonds de la bibliothèque est accessible en ligne à partir du site web.
                     </Paragraph>
-                    <Button type="primary" icon={<BookOutlined />} href="#url-catalogue" style={{ backgroundColor: Colors.primaryColor, borderColor: Colors.primaryColor }}>
+                    {/* <Button type="primary" icon={<BookOutlined />} href="#url-catalogue" style={{ backgroundColor: Colors.primaryColor, borderColor: Colors.primaryColor }}>
                         Accès au catalogue
-                    </Button>
+                    </Button> */}
                 </Card>
             </Col>
 
@@ -121,7 +123,7 @@ export const LibraryDashboard: React.FC = () => {
                         <b style={{ color: '#595959' }}>Autres lecteurs</b>
                         <p style={{ fontSize: '13px', margin: '4px 0' }}>Inscription sur présentation d'une pièce d'identité ou carte justificative. Les tarifs dépendent de votre catégorie.</p>
                     </div>
-                    <Button type="link" style={{ color: Colors.primaryColor }}>Lire plus</Button>
+                    {/* <Button type="link" style={{ color: Colors.primaryColor }}>Lire plus</Button> */}
                 </Card>
             </Col>
 
@@ -144,13 +146,22 @@ export const LibraryDashboard: React.FC = () => {
                     <Paragraph type="secondary" style={{ fontSize: '13px', textAlign: "center", marginBottom: '20px' }}>
                         Dès disponibilité, vous êtes notifié par <b>mail et SMS</b>. Le document vous est réservé pendant <b>3 jours</b>.
                     </Paragraph>
-                    <Button
+                    <div className="wp-block-button- wpz-alt-button w-100" style={{ alignSelf: "center", justifyContent: "center" }}>
+                        <NavLink
+                            className="wp-block-button__link wp-element-button w-100"
+                            to={routes.HOME}
+                            onClick={onDownloadROI}
+                        >
+                            Règlements
+                        </NavLink>
+                    </div>
+                    {/* <Button
                         type="dashed"
                         style={{ color: Colors.primaryColor, borderColor: Colors.primaryColor }}
                         onClick={onDownloadROI}
                     >
                         Télécharger le règlement
-                    </Button>
+                    </Button> */}
                 </Card>
             </Col>
 
