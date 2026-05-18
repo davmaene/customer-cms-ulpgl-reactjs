@@ -443,6 +443,16 @@ export const staffMembers: StaffMember[] = [
         isOrganizer: true,
     },
     {
+        uuid: "45454",
+        name: "Eliezer BISIMWA MWONGANE",
+        slug: "",
+        role: "Bibliothécaire en chef",
+        description: "Bibliothécaire en chef",
+        email: ["eliezermwo@yahoo.fr"],
+        phone: ["+243997775077"],
+        image: "https://ulpgl.net/wp-content/uploads/2020/09/eliezer2-189x183.jpg"
+    },
+    {
         uuid: '1',
         name: 'Prof. Aaron Lulu Phd.',
         slug: "prof-aaron-lulu-phd.",
@@ -708,8 +718,6 @@ export const categoriesArticles = [
     { name: "Santé", href: "/categories/sante" },
 ];
 
-// src/data/laureats.ts
-
 export interface Laureat {
     numero: number;
     nom: string;
@@ -724,6 +732,39 @@ export interface StatGlobale {
     reussites: number;
     taux_reussite: number;
 }
+
+export const modalities: ReglePret[] = [
+    {
+        "id": 1,
+        "categorie": "Etudiants en Licence ( L )",
+        "nombre_ouvrages": 3,
+        "duree_pret": "14 jours"
+    },
+    {
+        "id": 2,
+        "categorie": "Etudiants Master ( M ) et Doctorant ( Doc )",
+        "nombre_ouvrages": 4,
+        "duree_pret": "21 jours"
+    },
+    {
+        "id": 3,
+        "categorie": "Enseignants",
+        "nombre_ouvrages": 4,
+        "duree_pret": "30 jours"
+    },
+    {
+        "id": 4,
+        "categorie": "Personnels de l’Université",
+        "nombre_ouvrages": 2,
+        "duree_pret": "14 jours"
+    },
+    {
+        "id": 5,
+        "categorie": "Personnes extérieures",
+        "nombre_ouvrages": 5,
+        "duree_pret": "Consultation sur place"
+    }
+]
 
 export const laureatsData = {
     laureats: {
@@ -2138,3 +2179,25 @@ export const laureatsData = {
         taux_global: 96.8
     }
 } as const;
+
+export const feesData: ItemFrais[] = [
+    { key: 1, promotion: "L0", faculte: "FST", details_frais: { frais_academiques: 450, releve: 2, reinscription: 0, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 490, tranches: { premiere: 200, deuxieme: 100, troisieme: 190 } },
+    { key: 2, promotion: "L1", faculte: "FSHS, FSPJA, FSEG, FPSE", details_frais: { frais_academiques: 450, releve: 2, reinscription: 0, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 490, tranches: { premiere: 200, deuxieme: 100, troisieme: 190 } },
+    { key: 3, promotion: "L1", faculte: "FSS-SAPU", details_frais: { frais_academiques: 500, releve: 2, reinscription: 0, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 540, tranches: { premiere: 200, deuxieme: 100, troisieme: 240 } },
+    { key: 4, promotion: "L1", faculte: "FST", details_frais: { frais_academiques: 500, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 550, tranches: { premiere: 200, deuxieme: 100, troisieme: 250 } },
+    { key: 5, promotion: "L2", faculte: "FSHS, FSPJA, FSEG, FPSE", details_frais: { frais_academiques: 450, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 500, tranches: { premiere: 200, deuxieme: 100, troisieme: 200 } },
+    { key: 6, promotion: "L2", faculte: "FST, FSS-SAPU", details_frais: { frais_academiques: 500, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 550, tranches: { premiere: 200, deuxieme: 100, troisieme: 250 } },
+    { key: 7, promotion: "L3", faculte: "FSHS, FSPJA, FSEG, FPSE", details_frais: { frais_academiques: 450, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 75, construction: 23, stage: 0, jury: 0 }, total: 575, tranches: { premiere: 250, deuxieme: 150, troisieme: 175 } },
+    { key: 8, promotion: "L3", faculte: "FST, FSS-SAPU", details_frais: { frais_academiques: 500, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 75, construction: 23, stage: 0, jury: 0 }, total: 625, tranches: { premiere: 250, deuxieme: 150, troisieme: 225 } },
+    { key: 9, promotion: "M1", faculte: "FSHS, FSPJA, FSEG, FPSE", details_frais: { frais_academiques: 560, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 610, tranches: { premiere: 250, deuxieme: 150, troisieme: 210 } },
+    { key: 10, promotion: "M1", faculte: "FST, FSS-SAPU", details_frais: { frais_academiques: 610, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 660, tranches: { premiere: 250, deuxieme: 200, troisieme: 210 } },
+    { key: 11, promotion: "M2", faculte: "FSHS, FSPJA, FSEG, FPSE", details_frais: { frais_academiques: 560, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 100, construction: 23, stage: 0, jury: 0 }, total: 710, tranches: { premiere: 250, deuxieme: 250, troisieme: 210 } },
+    { key: 12, promotion: "M2", faculte: "FST, FSS-SAPU", details_frais: { frais_academiques: 610, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 100, construction: 23, stage: 0, jury: 0 }, total: 760, tranches: { premiere: 300, deuxieme: 250, troisieme: 210 } },
+    { key: 13, promotion: "L1", faculte: "FSS-MED", details_frais: { frais_academiques: 555, releve: 2, reinscription: null, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 595, tranches: { premiere: 250, deuxieme: 150, troisieme: 195 } },
+    { key: 14, promotion: "L2", faculte: "FSS-MED", details_frais: { frais_academiques: 555, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 605, tranches: { premiere: 250, deuxieme: 150, troisieme: 205 } },
+    { key: 15, promotion: "L3", faculte: "FSS-MED", details_frais: { frais_academiques: 555, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 75, construction: 23, stage: 0, jury: 0 }, total: 680, tranches: { premiere: 300, deuxieme: 150, troisieme: 230 } },
+    { key: 16, promotion: "M1", faculte: "FSS-MED", details_frais: { frais_academiques: 655, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 705, tranches: { premiere: 300, deuxieme: 200, troisieme: 205 } },
+    { key: 17, promotion: "M2", faculte: "FSS-MED", details_frais: { frais_academiques: 705, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 755, tranches: { premiere: 300, deuxieme: 200, troisieme: 255 } },
+    { key: 18, promotion: "M3", faculte: "FSS-MED", details_frais: { frais_academiques: 755, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 0, construction: 23, stage: 0, jury: 0 }, total: 805, tranches: { premiere: 300, deuxieme: 250, troisieme: 255 } },
+    { key: 19, promotion: "M4", faculte: "FSS-MED", details_frais: { frais_academiques: 485, releve: 2, reinscription: 10, carte: 8, bibliotheque: 5, coordination: 2, diplome: 75, construction: 23, stage: 540, jury: 650 }, total: 1800, tranches: { premiere: 765, deuxieme: 540, troisieme: 295 } },
+];

@@ -3,7 +3,6 @@ import React from "react";
 import "./App.css";
 import './styles/custom.scss';
 import './styles/skeleton.scss';
-import './styles/dashboard.scss';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

@@ -16,6 +16,7 @@ interface StaffMember {
     };
     socialLinks?: { platform: string; url: string }[];
 }
+
 interface Center {
     flug: string;
     title: string;
@@ -30,6 +31,7 @@ interface Center {
     contacts?: string[];
     testmonials?: { quote: string; author: string; role: string; imageProfile?: string }[];
 }
+
 type InputFormat = 'email' | 'phone' | 'url' | 'unknown';
 interface KeysFacts {
     title: string;
@@ -108,4 +110,47 @@ interface FAQItemProps {
     number: string;
     question: string;
     answer: string;
+}
+
+interface ReglePret {
+    id: number;
+    categorie: string;
+    nombre_ouvrages: number;
+    duree_pret: string;
+}
+
+interface DetailsFrais {
+    frais_academiques: number;
+    releve: number;
+    reinscription: number | null;
+    carte: number;
+    bibliotheque: number;
+    coordination: number;
+    diplome: number;
+    construction: number;
+    stage: number;
+    jury: number;
+}
+
+interface Tranches {
+    premiere: number;
+    deuxieme: number;
+    troisieme: number;
+}
+
+interface ItemFrais {
+    key: number;
+    promotion: string;
+    faculte: string;
+    details_frais: DetailsFrais;
+    total: number;
+    tranches: Tranches;
+}
+
+interface InfoPaiement {
+    key: string;
+    typeFrais: string;
+    banque: string;
+    compte: string;
+    note?: string;
 }

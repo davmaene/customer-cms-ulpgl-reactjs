@@ -5,13 +5,144 @@ import { HeroSection } from '../components/Hero.component';
 import { ArticleCard } from '../components/subcomponents/ArticleComponent';
 import heroImage from '../assets/images/hero-image.png';
 import { QuoteSection } from '../components/Quote.component';
-import { activities, centers, domainsData, posts } from '../utils/utils.statiquedata';
+import { activities, centers, domainsData, feesData, posts } from '../utils/utils.statiquedata';
 import { randomNumber, shuffleArray, truncateText } from '../utils/utils.fucntions';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import students from '../assets/images/177A7204.jpg';
 import { ExploreCenters } from '../components/Centers.component';
 import { DomainesSection } from '../components/Domaines.component';
+
+import type { ColumnsType } from 'antd/es/table';
+import Table from 'antd/es/table';
+import { Colors } from '../utils/utils.colors';
+import { Paymenentinfos } from '../components/subcomponents/Paymenentinfos';
+import { FaCircleInfo } from "react-icons/fa6";
+
+const Info = FaCircleInfo as any
+
+export const columns: ColumnsType<ItemFrais> = [
+  {
+    title: 'Promotion',
+    dataIndex: 'promotion',
+    key: 'promotion',
+    fixed: 'left',
+    width: 100,
+    align: 'center',
+  },
+  {
+    title: 'Faculté',
+    dataIndex: 'faculte',
+    key: 'faculte',
+    fixed: 'left',
+    width: 170,
+    align: 'left',
+  },
+  {
+    title: 'TOTAL',
+    dataIndex: 'total',
+    key: 'total',
+    align: 'center',
+    className: "bg-primary",
+    width: 120,
+    render: (total) => <strong style={{ color: Colors.whiteColor }}>{total} $</strong>,
+  },
+  {
+    title: 'Frais Acad.',
+    dataIndex: ['details_frais', 'frais_academiques'],
+    key: 'frais_academiques',
+    align: 'center',
+    width: 100,
+  },
+  {
+    title: 'Relevé',
+    dataIndex: ['details_frais', 'releve'],
+    key: 'releve',
+    align: 'center',
+    width: 100,
+  },
+  {
+    title: 'Réinscription',
+    dataIndex: ['details_frais', 'reinscription'],
+    key: 'reinscription',
+    align: 'center',
+    width: 110,
+    render: (val) => (val === null || val === 0 ? '-' : val),
+  },
+  {
+    title: 'Carte',
+    dataIndex: ['details_frais', 'carte'],
+    key: 'carte',
+    align: 'center',
+    width: 100,
+  },
+  {
+    title: 'Bibliothèque',
+    dataIndex: ['details_frais', 'bibliotheque'],
+    key: 'bibliotheque',
+    align: 'center',
+    width: 110,
+  },
+  {
+    title: 'Coord. des étu.',
+    dataIndex: ['details_frais', 'coordination'],
+    key: 'coordination',
+    align: 'center',
+    width: 130,
+  },
+  {
+    title: 'Diplôme',
+    dataIndex: ['details_frais', 'diplome'],
+    key: 'diplome',
+    align: 'center',
+    width: 100,
+    render: (val) => (val === 0 ? '-' : val),
+  },
+  {
+    title: 'Construction',
+    dataIndex: ['details_frais', 'construction'],
+    key: 'construction',
+    align: 'center',
+    width: 120,
+  },
+  {
+    title: 'Stage',
+    dataIndex: ['details_frais', 'stage'],
+    key: 'stage',
+    align: 'center',
+    width: 100,
+    render: (val) => (val === 0 ? '-' : val),
+  },
+  {
+    title: 'Jury',
+    dataIndex: ['details_frais', 'jury'],
+    key: 'jury',
+    align: 'center',
+    width: 100,
+    render: (val) => (val === 0 ? '-' : val),
+  },
+  {
+    title: '1ère Tranche',
+    dataIndex: ['tranches', 'premiere'],
+    key: 'premiere',
+    align: 'center',
+    width: 120,
+  },
+  {
+    title: '2ème Tranche',
+    dataIndex: ['tranches', 'deuxieme'],
+    key: 'deuxieme',
+    align: 'center',
+    width: 120,
+  },
+  {
+    title: '3ème Tranche',
+    dataIndex: ['tranches', 'troisieme'],
+    key: 'troisieme',
+    align: 'center',
+    width: 120,
+  },
+];
 
 export const Home: React.FC = () => {
   return (
@@ -23,6 +154,7 @@ export const Home: React.FC = () => {
       {/* Explore our centers */}
       <ExploreCenters />
       {/* <ProgramSection /> */}
+      <FeesSection />
       <StudentsSection />
       {/* Explore domaines */}
       <DomainesSection />
@@ -48,7 +180,7 @@ const ArticlesSection: React.FC = () => {
               Articles et dernières nouvelles
             </h2>
             <p className="has-tertiary-color has-text-color">
-              Restez informé des avancées de nos projets et découvrez des analyses d'experts pour approfondir vos connaissances et optimiser votre quotidien académique.
+              Plongez au cœur de l'innovation et enrichissez vos connaissances grâce aux publications de notre communauté
             </p>
           </div>
           <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}></div>
@@ -77,6 +209,60 @@ const ArticlesSection: React.FC = () => {
           })}
         </div>
 
+        <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
+      </div>
+    </div>
+  );
+};
+
+const FeesSection: React.FC = () => {
+  return (
+    <div id="fees" className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained is-layout-container">
+      <div className="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+
+        <div className="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
+          <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}>
+            <h2 className="wp-block-heading has-primary-color has-text-color has-max-48-font-size">
+              Informations sur les frais académiques et les frais connexes
+            </h2>
+            <p className="has-tertiary-color has-text-color">
+              Consultez la grille officielle des frais académiques
+            </p>
+          </div>
+          <div className="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style={{ flexBasis: '50%' }}></div>
+        </div>
+
+        <div style={{ height: '60px' }} aria-hidden="true" className="wp-block-spacer"></div>
+        <div style={{ width: '100%', display: 'block' }}>
+          <Table
+            columns={columns}
+            dataSource={feesData}
+            pagination={false}
+            bordered
+            size="small"
+            scroll={{ x: 1400 }} // Fixer une valeur numérique ici force l'activation stricte du mode responsive interne
+            components={{
+              header: {
+                cell: (props: any) => (
+                  <th
+                    {...props}
+                    style={{
+                      ...props.style,
+                      backgroundColor: Colors.primaryColor,
+                      color: Colors.whiteColor,
+                    }}
+                  />
+                ),
+              },
+            }}
+          />
+        </div>
+        <div style={{ height: '20px' }} aria-hidden="true" className="wp-block-spacer"></div>
+        <span style={{ marginTop: 20 }} className='mt-3'>
+          <Info style={{ color: Colors.primaryColor, marginRight: 10 }} />
+          Tous les frais sont à versés sur les comptes officiels de {APPNAME} soit payés dans les guichets au niveau du service de fincance situé dans le campus Moise dans le batiment de l'adminsitration central
+        </span>
+        <Paymenentinfos />
         <div style={{ height: '100px' }} aria-hidden="true" className="wp-block-spacer"></div>
       </div>
     </div>

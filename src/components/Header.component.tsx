@@ -123,7 +123,7 @@ export const Header: React.FC = () => {
                     <li><Link to={routes.FAQ}>Foire aux question</Link></li>
                     <li><Link to={routes.COMPLAINTS}>Système des plaintes</Link></li>
                     <li><Link to={routes.TFE}>Système de gestion des TFE</Link></li>
-                    <li><Link to={routes.LIBRARY}>Bibliothèque</Link></li>
+                    <li><Link to={routes.BIBLIO}>Bibliothèque</Link></li>
                   </ul>
                 </div>
               </div>

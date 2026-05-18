@@ -9,18 +9,31 @@ export const ProfileCard: React.FC<{ profile: StaffMember, showDescription?: boo
                 className="wp-block-column is-style-default is-layout-flow wp-block-column-is-layout-flow"
                 style={{ borderStyle: 'none', borderWidth: '0px', padding: 0 }}
             >
-                <figure className="wp-block-image size-full is-resized shadow" style={{}}>
+                <figure
+                    className="wp-block-image size-full is-resized shadow"
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        margin: "0 auto",           // Centre la figure elle-même dans son parent
+                        width: "fit-content",       // Ou une largeur fixe si tu veux
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                        marginBottom: 15         // Pour que le border-radius s'applique bien
+                    }}
+                >
                     <img
-                        className='wp-block-image__img'
+                        className="wp-block-image__img"
                         style={{
-                            borderRadius: '10px',
-                            padding: '2px',
-                            // height: '200px',
+                            borderRadius: "10px",
+                            padding: "2px",
+                            display: "block",       // Important pour les images
+                            maxWidth: "100%",
+                            height: "auto",
                         }}
                         src={image}
-                        alt={"Image - ".concat(name)}
+                        alt={`Image - ${name}`}
                         loading="lazy"
-                    // onError={}
                     />
                 </figure>
                 <Link to={routes.PROFILE.concat("/").concat(slug)} className="text-wrapper">

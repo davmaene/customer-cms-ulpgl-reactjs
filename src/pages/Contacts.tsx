@@ -56,7 +56,7 @@ export const Contacts: React.FC = () => {
                 </main>
 
                 {/* Répertoire du personnel */}
-                <StaffDirectory />
+                {/* <StaffDirectory /> */}
             </div>
         </>
     );
