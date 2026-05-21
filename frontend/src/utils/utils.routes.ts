@@ -23,4 +23,7 @@ export enum routes {
     KAUTA_MATERNEL = '/app/ecole-maternelle-kauta',
     ANCIENS = '/app/anciens-de-lulpgl',
     DASHBOARD = '/dashboard',
+    LOGIN = '/login',
+    SEARCH = '/search',
+    FACULTIES = '/app/facultes',
 }
