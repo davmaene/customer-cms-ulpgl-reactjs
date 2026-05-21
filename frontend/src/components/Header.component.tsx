@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
             {user ? (
               <Link
                 data-testid="header-dashboard-link"
-                to={routes.DASHBOARD}
+                to={routes.ADMIN}
                 style={{ color: "white", textDecoration: "none", display: "flex", alignItems: "center", gap: 6, fontWeight: 500 }}
               >
                 <ShieldIcon /> {isAdmin ? "Admin" : "Publieur"} · {user.name?.split(" ")[0]}
@@ -119,6 +119,7 @@ export const Header: React.FC = () => {
                     <li><Link to={routes.ARTICLES}>Articles</Link></li>
                     <li><Link to={`${routes.ARTICLES}/evenement`}>Événements</Link></li>
                     <li><Link to={`${routes.ARTICLES}/activite`}>Activités</Link></li>
+                    <li><Link to={routes.SCHEDULES}>Horaires & examens</Link></li>
                   </ul>
                 </div>
                 <div className="mega-menu-column">

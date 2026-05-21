@@ -548,6 +548,79 @@ $prefix: "mo-";
     }
 }
 
+/* Top navigation bar */
+.top-navigation-bar {
+    width: auto;
+}
+
+.top-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.top-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 0;
+    transition: opacity 0.2s;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+.top-nav-link:hover {
+    color: #ffffff;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.top-nav-link.active {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .top-nav-list {
+        gap: 12px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+    }
+    .top-nav-link {
+        font-size: 12px;
+    }
+}
+
+/* Admin Layout responsive */
+@media (max-width: 992px) {
+    .admin-sidebar {
+        position: fixed !important;
+        left: -260px;
+        top: 0;
+        z-index: 200;
+        transition: left 0.25s ease;
+    }
+    .admin-sidebar.open {
+        left: 0;
+    }
+    .admin-sidebar-overlay {
+        display: block !important;
+    }
+    .admin-sidebar-close {
+        display: block !important;
+    }
+    .admin-sidebar-toggle {
+        display: inline-flex !important;
+    }
+}
+
 @import "bootstrap";
 
 /* TipTap RichEditor styles */

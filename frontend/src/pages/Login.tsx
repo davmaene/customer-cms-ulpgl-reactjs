@@ -152,6 +152,12 @@ export const Login: React.FC = () => {
           >
             {loading ? "Connexion..." : "Se connecter"}
           </button>
+
+          <div style={{ marginTop: 14, textAlign: "right" }}>
+            <Link to={routes.FORGOT_PASSWORD} data-testid="forgot-password-link" style={{ color: Colors.primaryColor, textDecoration: "none", fontSize: 13 }}>
+              Mot de passe oublié ?
+            </Link>
+          </div>
         </form>
 
         <div style={{ marginTop: 22, textAlign: "center" }}>

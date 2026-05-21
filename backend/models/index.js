@@ -75,6 +75,34 @@ const ContactMessage = sequelize.define('ContactMessage', {
   isRead: { type: DataTypes.BOOLEAN, defaultValue: false },
 }, { tableName: 'contact_messages', timestamps: true });
 
+const PasswordResetToken = sequelize.define('PasswordResetToken', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  userId: { type: DataTypes.INTEGER, allowNull: false },
+  token: { type: DataTypes.STRING(120), unique: true, allowNull: false },
+  expiresAt: { type: DataTypes.DATE, allowNull: false },
+  usedAt: { type: DataTypes.DATE, allowNull: true },
+}, { tableName: 'password_reset_tokens', timestamps: true });
+
+const Schedule = sequelize.define('Schedule', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  type: { type: DataTypes.ENUM('cours', 'examen'), allowNull: false },
+  title: { type: DataTypes.STRING(255), allowNull: false },
+  facultyId: { type: DataTypes.INTEGER, allowNull: false },
+  filiereId: { type: DataTypes.INTEGER, allowNull: true },
+  promotion: { type: DataTypes.STRING(40), allowNull: false }, // L1, L2, L3, M1, M2
+  academicYear: { type: DataTypes.STRING(20), allowNull: true }, // 2025-2026
+  semester: { type: DataTypes.STRING(20), allowNull: true }, // S1, S2
+  startDate: { type: DataTypes.DATE, allowNull: true },
+  endDate: { type: DataTypes.DATE, allowNull: true },
+  location: { type: DataTypes.STRING(255), allowNull: true },
+  fileUrl: { type: DataTypes.STRING(500), allowNull: true }, // PDF or image URL via Cloudinary
+  description: { type: DataTypes.TEXT, allowNull: true },
+  authorId: { type: DataTypes.INTEGER, allowNull: false },
+  status: { type: DataTypes.ENUM('pending', 'published', 'rejected'), defaultValue: 'pending' },
+  publishedAt: { type: DataTypes.DATE, allowNull: true },
+  rejectionReason: { type: DataTypes.TEXT, allowNull: true },
+}, { tableName: 'schedules', timestamps: true });
+
 // Associations
 Faculty.hasMany(Filiere, { foreignKey: 'facultyId', as: 'filieres', onDelete: 'CASCADE' });
 Filiere.belongsTo(Faculty, { foreignKey: 'facultyId', as: 'faculty' });
@@ -86,4 +114,11 @@ Content.belongsTo(User, { foreignKey: 'authorId', as: 'author' });
 Content.belongsTo(Faculty, { foreignKey: 'facultyId', as: 'faculty' });
 User.hasMany(Content, { foreignKey: 'authorId', as: 'contents' });
 
-module.exports = { sequelize, User, Faculty, Filiere, Content, Newsletter, ContactMessage };
+Schedule.belongsTo(Faculty, { foreignKey: 'facultyId', as: 'faculty' });
+Schedule.belongsTo(Filiere, { foreignKey: 'filiereId', as: 'filiere' });
+Schedule.belongsTo(User, { foreignKey: 'authorId', as: 'author' });
+Faculty.hasMany(Schedule, { foreignKey: 'facultyId', as: 'schedules' });
+
+PasswordResetToken.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
+module.exports = { sequelize, User, Faculty, Filiere, Content, Newsletter, ContactMessage, PasswordResetToken, Schedule };

@@ -104,6 +104,7 @@ export const MainNavigation: React.FC = () => {
                 />
                 <NavItem href={routes.DOMAINES} label="Domaines" color={Colors.darkColor} />
                 <NavItem href={routes.CENTRES} label="Centres" color={Colors.darkColor} />
+                <NavItem href={routes.SCHEDULES} label="Horaires" color={Colors.darkColor} />
                 <NavItem href={routes.ARTICLES} label="Articles" color={Colors.darkColor} />
                 <NavItem
                   href={`${routes.ARTICLES}/evenement`}

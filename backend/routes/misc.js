@@ -1,6 +1,6 @@
 const express = require('express');
 const { Op } = require('sequelize');
-const { Faculty, Filiere, Content, Newsletter, ContactMessage, User } = require('../models');
+const { Faculty, Filiere, Content, Newsletter, ContactMessage, User, Schedule } = require('../models');
 const { sendMail } = require('../utils/mailer');
 const { requireAuth, requireRole } = require('../middleware/auth');
 
@@ -132,15 +132,17 @@ router.delete('/contact/:id', requireAuth, requireRole('super_admin'), async (re
 router.get('/dashboard/stats', requireAuth, async (req, res) => {
   const isAdmin = req.user.role === 'super_admin';
   const whereAuthor = isAdmin ? {} : { authorId: req.user.id };
-  const [total, pending, published, rejected, newsletters, messages] = await Promise.all([
+  const [total, pending, published, rejected, newsletters, messages, schedulesTotal, schedulesPending] = await Promise.all([
     Content.count({ where: whereAuthor }),
     Content.count({ where: { ...whereAuthor, status: 'pending' } }),
     Content.count({ where: { ...whereAuthor, status: 'published' } }),
     Content.count({ where: { ...whereAuthor, status: 'rejected' } }),
     isAdmin ? Newsletter.count() : Promise.resolve(0),
     isAdmin ? ContactMessage.count({ where: { isRead: false } }) : Promise.resolve(0),
+    Schedule.count({ where: whereAuthor }),
+    Schedule.count({ where: { ...whereAuthor, status: 'pending' } }),
   ]);
-  res.json({ total, pending, published, rejected, newsletters, messages });
+  res.json({ total, pending, published, rejected, newsletters, messages, schedulesTotal, schedulesPending });
 });
 
 // Users management (super admin)

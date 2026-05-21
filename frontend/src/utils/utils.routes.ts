@@ -24,6 +24,10 @@ export enum routes {
     ANCIENS = '/app/anciens-de-lulpgl',
     DASHBOARD = '/dashboard',
     LOGIN = '/login',
+    FORGOT_PASSWORD = '/forgot-password',
+    RESET_PASSWORD = '/reset-password',
     SEARCH = '/search',
     FACULTIES = '/app/facultes',
+    SCHEDULES = '/app/horaires',
+    ADMIN = '/app/admin',
 }
