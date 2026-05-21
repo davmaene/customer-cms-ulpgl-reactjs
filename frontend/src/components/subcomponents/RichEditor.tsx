@@ -66,7 +66,7 @@ const ToolButton: React.FC<{ active?: boolean; onClick: () => void; title: strin
 export const RichEditor: React.FC<Props> = ({ value, onChange, folder = "ulpgl/articles", placeholder = "Rédigez votre contenu..." }) => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({ link: false } as any),
       Link.configure({ openOnClick: false, HTMLAttributes: { class: "rich-link" } }),
       Image,
       Placeholder.configure({ placeholder }),

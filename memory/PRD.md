@@ -1,6 +1,6 @@
 # ULPGL-Goma — Landing Page + CMS (PRD)
 
-**Dernière mise à jour :** 21 Mai 2026
+**Dernière mise à jour :** 21 Mai 2026 (itération 2)
 
 ## Énoncé original
 > "voici un landing page, je voudrais que tu optimise les menus sur mobile et tablette, proposes les pages qui manquent entre autre les pages des facultés et domaines, implémente la recherche qui peut être un événement, une activité, une fac, une filière, ... puis ajoute un petit dashboard qui va me permettre de publier les articles, les événements, activités... crée deux groupes d'utilisateurs (publieur faculté + super-admin valideur). Newsletter, form contact côté front et backend en NodeJS-Express, Sequelize, MySQL."
@@ -53,6 +53,11 @@
 - **Newsletter** : Footer → POST `/api/newsletter` → stockage BDD + email de bienvenue (SendGrid si configuré)
 - **Formulaire contact** : `/app/contacts` → POST `/api/contact` → stockage BDD + email admin (si SendGrid)
 - **Pages publiques connectées à l'API** : Articles, Article détail, Faculty detail
+
+### ✅ Phase 2 — Itération 2 (21 Mai 2026)
+- **Upload d'images Cloudinary** (signed upload via `/api/cloudinary/signature`) — composant `ImageUpload` (drag & drop, prévisualisation, suppression). Clés à fournir dans `.env` : `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. Endpoint renvoie 503 si non configuré.
+- **Éditeur WYSIWYG TipTap** (`RichEditor`) — H1/H2/H3/paragraphe, gras/italique/code, listes (à puces & numérotées), citation, liens, **insertion d'images directement via Cloudinary**, undo/redo. Remplace l'ancien textarea HTML brut dans le dashboard.
+- **Création de comptes utilisateurs** — Bouton "Créer un publieur" dans l'onglet *Utilisateurs* du dashboard (super-admin uniquement). Modal avec nom, email, mot de passe, rôle (publieur faculté / super-admin), faculté associée. Branché sur `POST /api/auth/register`.
 
 ### Tests
 - Backend : 30 tests pytest, **100% passants**
